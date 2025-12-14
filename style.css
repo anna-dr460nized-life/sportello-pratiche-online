@@ -31,12 +31,16 @@ body {
 .hero {
  padding: 32px 16px 40px;
  text-align: center;
+ display: flex;          /* ← AGGIUNGI */
+ flex-direction: column; /* ← AGGIUNGI */
 }
+
 
 .logo-wrap {
  display: flex;
  justify-content: center;
  margin-top: 8px;
+ align-self: center;
 }
 
 .logo-circle {
@@ -75,6 +79,88 @@ body {
 .hero-subtitle {
  font-size: 1.05rem;
  opacity: 0.92;
+}
+
+/* link grande Anna,HELP!✈️ (sembra bottone, ma è un <a>) */
+.annahelp-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  margin: 0 0 14px auto;      /* lo spinge a destra */
+  width: fit-content;
+  align-self: flex-end;   
+
+  padding: 14px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+
+  background: linear-gradient(135deg, #ff4fe0, #ff1fb6);
+  color: #190016;
+
+  font-weight: 800;
+  box-shadow:
+    0 0 14px rgba(255, 80, 220, 0.85),
+    0 0 28px rgba(255, 50, 180, 0.65);
+}
+
+.annahelp-link:hover{
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.annahelp-anna{ font-size: 1rem; }
+.annahelp-help{ font-size: 1.2rem; letter-spacing: 0.5px; }
+.annahelp-plane{ font-size: 1.15rem; }
+
+/* pagina Anna Help: top bar */
+.annahelp-page-top{
+  padding: 16px 18px 0;
+  text-align: left;
+}
+
+.back-home{
+  color: #fdfdff;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.back-home:hover{
+  text-decoration: underline;
+}
+
+/* stile testo nella box (stesso mood di "Come funziona") */
+.annahelp-box{
+  text-align: left;
+}
+
+.annahelp-sub{
+  margin: 0 0 10px 0;
+  opacity: 0.9;
+}
+
+.annahelp-lead{
+  margin: 0 0 10px 0;
+  text-shadow: 0 0 8px rgba(255, 0, 200, 0.35);
+}
+
+.annahelp-text{
+  margin: 0 0 14px 0;
+  opacity: 0.95;
+}
+
+.annahelp-list{
+  margin: 0;
+  padding-left: 18px;
+}
+
+.annahelp-list li{
+  margin: 8px 0;
+}
+
+.annahelp-final{
+  margin-top: 16px;
+  text-align: center;
 }
 
 /* Pillole servizi */
@@ -416,4 +502,33 @@ body {
  .pill-grid {
    gap: 14px;
  }
+}
+.annahelp-heading {
+  font-family: 'Graduate', serif;
+  font-size: 1.6rem;
+  margin-top: 22px;
+  margin-bottom: 12px;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 10px rgba(0, 255, 200, 0.7),
+    0 0 20px rgba(255, 0, 200, 0.5);
+}
+/* Anna HELP come titolo centrato (pagina AnnaHELP) */
+.annahelp-title {
+  display: inline-flex;
+  margin: 32px auto 24px;
+  pointer-events: none;   /* inattivo */
+}
+
+.page {
+  text-align: center;
+}
+.anna-bottom {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.anna-section .divider {
+  margin-top: 16px;
+  margin-bottom: 0;
 }
