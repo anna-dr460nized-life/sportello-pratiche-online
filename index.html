@@ -1,162 +1,188 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Sportello Pratiche Online</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta charset="UTF-8">
+ <title>Sportello Pratiche Online</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Font: Graduate per titoli, Inter per testi -->
-  <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+ <!-- Font: Graduate per titoli, Inter per testi -->
+ <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+ <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page-bg"></div>
+ <div class="page-bg"></div>
 
-  <main class="page">
+ <main class="page">
 
-    <!-- HERO -->
-    <header class="hero" id="top">
-      <div class="logo-wrap">
-        <div class="logo-circle">
-          <img src="logo-sportello.png" alt="Logo Sportello Pratiche Online" class="logo">
-        </div>
-      </div>
+   <!-- HERO -->
+   <header class="hero" id="top">
+     <div class="logo-wrap">
+       <div class="logo-circle">
+         <img src="logo-sportello.png" alt="Logo Sportello Pratiche Online" class="logo">
+       </div>
+     </div>
 
-      <h1 class="hero-title">Sportello Pratiche Online</h1>
+     <h1 class="hero-title">Sportello Pratiche Online</h1>
 
-      <p class="hero-subtitle">
-        Pratiche fiscali &nbsp;·&nbsp; Servizi &nbsp;·&nbsp; Pratiche previdenziali
-      </p>
+     <p class="hero-subtitle">
+       Pratiche fiscali &nbsp;·&nbsp; Servizi &nbsp;·&nbsp; Pratiche previdenziali
+     </p>
+<div class="pill-grid">
+  <!-- servizi base -->
+  <button class="pill">ISEE</button>
+  <button class="pill">IMU</button>
+  <button class="pill">F24</button>
+  <button class="pill">Bonus locali</button>
+  <button class="pill pill-wide">Lavoratori domestici</button>
 
-      <div class="pill-grid">
-        <button class="pill">ISEE</button>
-        <button class="pill">IMU</button>
-        <button class="pill">F24</button>
-        <button class="pill">Bonus locali</button>
+  <button class="pill pill-wide">Servizi digitali</button>
+  <button class="pill">Invio PEC</button>
+  <button class="pill">Invalidità civile</button>
+  <button class="pill">Immigrazione</button>
 
-        <button class="pill pill-wide">Lavoratori domestici</button>
-        <button class="pill pill-wide">Servizi digitali</button>
+  <!-- BLOCCO FISCALE (stessa riga) -->
+  <button class="pill">730</button>
+  <button class="pill pill-wide">Modello RED INPS</button>
 
-        <button class="pill">Invalidità civile</button>
-        <button class="pill">Immigrazione</button>
-      </div>
+  <!-- QUESTO VA DA SOLO -->
+  <button class="pill pill-wide pill-full">
+    Modello Redditi Persone Fisiche
+  </button>
+</div>
 
-      <div class="hero-arrow">↓</div>
+     <div class="hero-arrow">↓</div>
 
-      <div class="hero-ctas">
-        <button class="btn-primary" id="btn-steps">
-          Scopri come funziona ↓
-        </button>
+     <div class="hero-ctas">
+       <button class="btn-primary" id="btn-steps">
+         Scopri come funziona ↓
+       </button>
 
-        <button class="btn-secondary" id="btn-anna-help">
-          Anna, HELP! ✈️
-        </button>
-      </div>
-    </header>
-
-
-    <!-- SEZIONE: COME FUNZIONA (inizialmente nascosta) -->
-    <section id="come-funziona" class="section steps-section is-hidden">
-      <h2>Come funziona</h2>
-
-      <div class="terminal-box">
-        <ul class="steps-list">
-          <li>Descrivici il servizio di cui hai bisogno, contattandoci su WhatsApp;</li>
-          <li>Ti invieremo l’elenco dei documenti necessari e il mandato da firmare, comunicando anche i tempi e la modalità della lavorazione;</li>
-          <li>Invia la documentazione completa e firmata via e-mail o WhatsApp;</li>
-          <li>Una volta verificato il materiale, procederemo alla lavorazione della pratica;</li>
-          <li>Il pagamento avviene esclusivamente tramite link SumUp sicuro;</li>
-          <li>Ricevi la pratica completata in formato digitale insieme alla relativa fattura.</li>
-        </ul>
-      </div>
-
-      <div class="divider"></div>
-    </section>
+       <button class="btn-secondary" id="btn-anna-help">
+         Anna, HELP! ✈️
+       </button>
+     </div>
+   </header>
 
 
-    <!-- SEZIONE: ANNA HELP (inizialmente nascosta) -->
-    <section id="anna-help" class="section anna-section is-hidden">
-      <h2>Anna, HELP! è un servizio d’urgenza.</h2>
+   <!-- SEZIONE: COME FUNZIONA (inizialmente nascosta) -->
+   <section id="come-funziona" class="section steps-section is-hidden">
+     <h2>Come funziona</h2>
 
-      <p class="anna-intro">
-        Delega i tuoi problemi. Con Anna, HELP! puoi delegare a me tutto ciò che
-        richiede tempo, file, documenti e sportelli difficili e, innanzitutto, la presenza fisica.
-      </p>
+     <div class="terminal-box">
+       <ul class="steps-list">
+         <li>Descrivici il servizio di cui hai bisogno, contattandoci su WhatsApp;</li>
+         <li>Ti invieremo l’elenco dei documenti necessari e il mandato da firmare, comunicando anche i tempi e la modalità della lavorazione;</li>
+         <li>Invia la documentazione completa e firmata via e-mail o WhatsApp;</li>
+         <li>Una volta verificato il materiale, procederemo alla lavorazione della pratica;</li>
+         <li>Il pagamento avviene esclusivamente tramite link SumUp sicuro;</li>
+         <li>Ricevi la pratica completata in formato digitale insieme alla relativa fattura.</li>
+       </ul>
+     </div>
 
-      <ul class="anna-list">
-        <li>Hai bisogno che qualcuno vada fisicamente in un ufficio pubblico al posto tuo?</li>
-        <li>File agli sportelli pubblici?</li>
-        <li>Consegna o ritiro documenti.</li>
-        <li>Richiesta di informazioni direttamente all’ufficio;</li>
-        <li>Recarsi al Comune per accedere agli atti? – basta delegarmi;</li>
-        <li>Richiedere info sul permesso di soggiorno? – basta delegarmi;</li>
-        <li>Qualsiasi pratica o raccolta informazioni e/o preparativi per atti notarili? Ok.</li>
-      </ul>
-
-      <p class="anna-bottom">Ovunque tu sia.</p>
-
-      <div class="divider"></div>
-    </section>
+     <div class="divider"></div>
+   </section>
 
 
-    <!-- FOOTER -->
-    <footer class="footer" id="contatti">
-      <div class="footer-icons">
-        <a href="mailto:info@sportellopratiche.online" class="icon-circle" aria-label="Email">
-          ✉️
-        </a>
-        <a href="tel:07611521735" class="icon-circle" aria-label="Telefono">
-          📞
-        </a>
-        <a href="https://wa.me/3907611521735" class="icon-circle" aria-label="WhatsApp">
-          💬
-        </a>
-      </div>
+   <!-- SEZIONE: ANNA HELP (inizialmente nascosta) -->
+   <section id="anna-help" class="section anna-section is-hidden">
+     <h2>Anna, HELP! è un servizio d’urgenza.</h2>
 
-      <p class="footer-text"><strong>ANNA SIDYAKINA</strong></p>
-      <p class="footer-text"><strong>P.IVA: 02412340560</strong></p>
-      <p class="footer-text"><strong>info@sportellopratiche.online</strong></p>
-      <p class="footer-text"><strong>Domicilio digitale PEC: sidyakina@pec.it</strong></p>
-      <p class="footer-text numero-fisso"><strong>0761.152.17.35</strong></p>
-      <p class="footer-text">Numero fisso collegato a WhatsApp</p>
+     <p class="anna-intro">
+       Delega i tuoi problemi. Con Anna, HELP! puoi delegare a me tutto ciò che
+       richiede tempo, file, documenti e sportelli difficili e, innanzitutto, la presenza fisica.
+     </p>
 
-      <a class="sumup-btn" href="https://pay.sumup.com/b2c/QL1CLFXC" target="_blank" rel="noopener">
-        Paga con SumUp
-      </a>
+     <ul class="anna-list">
+       <li>Hai bisogno che qualcuno vada fisicamente in un ufficio pubblico al posto tuo?</li>
+       <li>File agli sportelli pubblici?</li>
+       <li>Consegna o ritiro documenti.</li>
+       <li>Richiesta di informazioni direttamente all’ufficio;</li>
+       <li>Recarsi al Comune per accedere agli atti? – basta delegarmi;</li>
+       <li>Richiedere info sul permesso di soggiorno? – basta delegarmi;</li>
+       <li>Qualsiasi pratica o raccolta informazioni e/o preparativi per atti notarili? Ok.</li>
+     </ul>
 
-      <p class="footer-note">
-        Il link per effettuare un pagamento verrà aperto in un&apos;altra scheda.
-      </p>
-    </footer>
+     <p class="anna-bottom">Ovunque tu sia.</p>
 
-  </main>
+     <div class="divider"></div>
+   </section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const btnSteps = document.getElementById('btn-steps');
-      const btnAnna = document.getElementById('btn-anna-help');
-      const stepsSection = document.getElementById('come-funziona');
-      const annaSection = document.getElementById('anna-help');
 
-      // Mostra "Come funziona" solo al primo click, poi scrolla
-      btnSteps.addEventListener('click', () => {
-        if (stepsSection.classList.contains('is-hidden')) {
-          stepsSection.classList.remove('is-hidden');
-          stepsSection.classList.add('is-visible');
-        }
-        stepsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
+   <!-- FOOTER -->
+   <footer class="footer" id="contatti">
+   <div class="footer-icons">
 
-      // Mostra "Anna Help" solo al primo click, poi scrolla
-      btnAnna.addEventListener('click', () => {
-        if (annaSection.classList.contains('is-hidden')) {
-          annaSection.classList.remove('is-hidden');
-          annaSection.classList.add('is-visible');
-        }
-        annaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-  </script>
+  <!-- EMAIL -->
+  <a href="mailto:info@sportellopratiche.online"
+     class="icon-circle"
+     aria-label="Email">
+    ✉️
+  </a>
+
+  <!-- TELEFONO -->
+  <a href="tel:07611521735"
+     class="icon-circle"
+     aria-label="Telefono">
+    📞
+  </a>
+
+  <!-- WHATSAPP -->
+  <a href="https://api.whatsapp.com/send?phone=3907611521735"
+     class="icon-circle"
+     aria-label="WhatsApp"
+     target="_blank"
+     rel="noopener">
+    <img src="icons8-whatsapp-40.png"
+         alt="WhatsApp"
+         class="icon-img">
+  </a>
+
+</div>
+
+     <p class="footer-text"><strong>ANNA SIDYAKINA</strong></p>
+     <p class="footer-text"><strong>P.IVA: 02412340560</strong></p>
+     <p class="footer-text"><strong>info@sportellopratiche.online</strong></p>
+     <p class="footer-text"><strong>Domicilio digitale PEC: sidyakina@pec.it</strong></p>
+     <p class="footer-text numero-fisso"><strong>0761.152.17.35</strong></p>
+     <p class="footer-text">Numero fisso collegato a WhatsApp</p>
+
+     <a class="sumup-btn" href="https://pay.sumup.com/b2c/QL1CLFXC" target="_blank" rel="noopener">
+       Paga con SumUp
+     </a>
+
+     <p class="footer-note">
+       
+     </p>
+   </footer>
+
+ </main>
+
+ <script>
+   document.addEventListener('DOMContentLoaded', () => {
+     const btnSteps = document.getElementById('btn-steps');
+     const btnAnna = document.getElementById('btn-anna-help');
+     const stepsSection = document.getElementById('come-funziona');
+     const annaSection = document.getElementById('anna-help');
+
+     // Mostra "Come funziona" solo al primo click, poi scrolla
+     btnSteps.addEventListener('click', () => {
+       if (stepsSection.classList.contains('is-hidden')) {
+         stepsSection.classList.remove('is-hidden');
+         stepsSection.classList.add('is-visible');
+       }
+       stepsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+     });
+
+     // Mostra "Anna Help" solo al primo click, poi scrolla
+     btnAnna.addEventListener('click', () => {
+       if (annaSection.classList.contains('is-hidden')) {
+         annaSection.classList.remove('is-hidden');
+         annaSection.classList.add('is-visible');
+       }
+       annaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+     });
+   });
+ </script>
 </body>
 </html>
