@@ -62,10 +62,7 @@
          Scopri come funziona ↓
        </button>
 
-       <button class="btn-secondary" id="btn-anna-help">
-         Anna, HELP! ✈️
-       </button>
-     </div>
+      
    </header>
 
 
@@ -88,29 +85,7 @@
    </section>
 
 
-   <!-- SEZIONE: ANNA HELP (inizialmente nascosta) -->
-   <section id="anna-help" class="section anna-section is-hidden">
-     <h2>Anna, HELP! è un servizio d’urgenza.</h2>
-
-     <p class="anna-intro">
-       Delega i tuoi problemi. Con Anna, HELP! puoi delegare a me tutto ciò che
-       richiede tempo, file, documenti e sportelli difficili e, innanzitutto, la presenza fisica.
-     </p>
-
-     <ul class="anna-list">
-       <li>Hai bisogno che qualcuno vada fisicamente in un ufficio pubblico al posto tuo?</li>
-       <li>File agli sportelli pubblici?</li>
-       <li>Consegna o ritiro documenti.</li>
-       <li>Richiesta di informazioni direttamente all’ufficio;</li>
-       <li>Recarsi al Comune per accedere agli atti? – basta delegarmi;</li>
-       <li>Richiedere info sul permesso di soggiorno? – basta delegarmi;</li>
-       <li>Qualsiasi pratica o raccolta informazioni e/o preparativi per atti notarili? Ok.</li>
-     </ul>
-
-     <p class="anna-bottom">Ovunque tu sia.</p>
-
-     <div class="divider"></div>
-   </section>
+  
 
 
    <!-- FOOTER -->
@@ -159,15 +134,31 @@
        
      </p>
    </footer>
+   <!-- LEGAL LINKS (sotto il footer) -->
+<div class="legal-links">
+  <a href="PrivacyPolicy.html">Privacy Policy</a>
+  <span>·</span>
+  <a href="CookiePolicy.html">Cookie Policy</a>
+</div>
 
  </main>
 
- <script>
-   document.addEventListener('DOMContentLoaded', () => {
-     const btnSteps = document.getElementById('btn-steps');
-     const btnAnna = document.getElementById('btn-anna-help');
-     const stepsSection = document.getElementById('come-funziona');
-     const annaSection = document.getElementById('anna-help');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btnSteps = document.getElementById('btn-steps');
+    const stepsSection = document.getElementById('come-funziona');
+
+    if (btnSteps && stepsSection) {
+      btnSteps.addEventListener('click', () => {
+        if (stepsSection.classList.contains('is-hidden')) {
+          stepsSection.classList.remove('is-hidden');
+          stepsSection.classList.add('is-visible');
+        }
+        stepsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  });
+</script>
 
      // Mostra "Come funziona" solo al primo click, poi scrolla
      btnSteps.addEventListener('click', () => {
@@ -178,15 +169,6 @@
        stepsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
      });
 
-     // Mostra "Anna Help" solo al primo click, poi scrolla
-     btnAnna.addEventListener('click', () => {
-       if (annaSection.classList.contains('is-hidden')) {
-         annaSection.classList.remove('is-hidden');
-         annaSection.classList.add('is-visible');
-       }
-       annaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-     });
-   });
  </script>
 </body>
 </html>
