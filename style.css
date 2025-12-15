@@ -554,3 +554,167 @@ body {
 .footer {
   margin-top: 64px;
 }
+/* ===== ANNA, HELP! ✈️ — TERMINAL STYLE ===== */
+
+.annahelp-terminal {
+  margin: 24px auto 0;
+  max-width: 760px;
+  padding: 22px 20px;
+  border-radius: 14px;
+
+  background: radial-gradient(circle at 0% 0%, rgba(0, 255, 200, 0.3), transparent 50%),
+              radial-gradient(circle at 100% 100%, rgba(255, 0, 200, 0.25), transparent 55%),
+              rgba(5, 5, 25, 0.88);
+
+  box-shadow:
+    0 0 22px rgba(0, 255, 200, 0.55),
+    0 0 40px rgba(255, 0, 200, 0.35);
+
+  text-align: left;
+}
+
+/* prompt Anna HELP */
+.annahelp-prompt {
+  font-size: 0.95rem;   /* NON enorme */
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* descrizione più leggibile su PC */
+.annahelp-lead {
+  font-size: 1.15rem; /* +2 punti */
+  margin: 14px 0 18px;
+  text-align: center;
+}
+
+/* paragrafi descrittivi */
+.annahelp-desc {
+  text-align: center;
+  font-size: 1.12rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  opacity: 0.96;
+}
+
+/* lista */
+.annahelp-list-terminal {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.annahelp-list-terminal li {
+  display: flex;
+  align-items: center;   /* 🔥 QUESTO SISTEMA TUTTO */
+  gap: 10px;             /* spazio uniforme tra elementi */
+  margin: 12px 0;
+  line-height: 1.4;
+}
+
+/* spunta neon (riusa quella esistente) */
+.annahelp-check {
+  font-size: 1.25rem;
+  margin-left: 4px;   /* prima era troppo */
+  margin-right: 6px;  /* AVVICINATA AL TESTO */
+  color: #ff4fd8;
+  text-shadow:
+    0 0 6px rgba(255, 79, 216, 0.7),
+    0 0 14px rgba(255, 79, 216, 0.5);
+}
+
+/* Freccia Anna → HELP! */
+.annahelp-arrow {
+  font-size: 1.1em;     /* leggermente più grande */
+  font-weight: 900;
+  margin: 0 6px;
+  vertical-align: middle;
+}
+
+/* === RIPRISTINO ANNA HELP TERMINAL — NON TOCCARE === */
+
+.annahelp-list-terminal li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.annahelp-prompt {
+  color: #00f7ff;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(0,247,255,0.9);
+  white-space: nowrap;
+}
+
+.annahelp-arrow {
+  margin: 0 6px;
+  font-weight: 700;
+  color: #00f7ff;
+  text-shadow:
+    0 0 4px rgba(0,247,255,1),
+    0 0 10px rgba(0,247,255,0.8);
+}
+
+.annahelp-check {
+  font-size: 1.25rem;
+  margin-left: 10px;
+  margin-right: 14px;
+  color: #ff4fd8;
+  text-shadow:
+    0 0 6px rgba(255, 79, 216, 0.7),
+    0 0 14px rgba(255, 79, 216, 0.5);
+}
+
+.annahelp-box-title {
+  margin: 0 0 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.annahelp-outro {
+  margin-top: 30px;
+  text-align: center;
+  font-family: 'Graduate', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.18em;
+  color: #9ffcff;
+  text-shadow:
+    0 0 8px rgba(0, 255, 220, 0.8),
+    0 0 18px rgba(0, 255, 220, 0.6),
+    0 0 28px rgba(0, 255, 220, 0.4);
+}
+
+.annahelp-subtitle {
+  font-family: 'Graduate', serif;
+  text-align: center;
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+  margin-top: 18px;
+  margin-bottom: 26px;
+  opacity: 0.95;
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.25),
+    0 0 14px rgba(0, 255, 220, 0.35);
+}
+
+.anna-bottom {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 1rem;          /* più piccolo del sottotitolo */
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(255, 0, 200, 0.35);
+}
+
+.annahelp-terminal h2 {
+  text-align: center;
+  margin-bottom: 22px;   /* DISTACCO NETTO */
+}
+
+.annahelp-subtitle {
+  font-family: 'Graduate', serif;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  margin: 10px 0 18px 0;
+  opacity: 0.9;
+}
