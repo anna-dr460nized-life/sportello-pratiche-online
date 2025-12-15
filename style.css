@@ -353,6 +353,7 @@ body {
 
 .anna-section {
  padding-top: 20px;
+ padding-bottom: 64px;;
 }
 
 .anna-intro {
@@ -523,6 +524,7 @@ body {
 
 .page {
   text-align: center;
+  padding-bottom: 96px;
 }
 .anna-bottom {
   margin-bottom: 0;
@@ -546,4 +548,9 @@ body {
 
 .legal-links a:hover {
   text-decoration: underline;
+}
+.spacer{ height: 24px; }
+
+.footer {
+  margin-top: 64px;
 }
