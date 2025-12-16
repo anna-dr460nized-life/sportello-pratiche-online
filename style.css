@@ -996,24 +996,38 @@ body {
   filter: drop-shadow(0 0 18px rgba(0,255,255,.35));
 }
 
-/* ===== FIX: immagine AH3 come ETICHETTA (override finale) ===== */
+/* ===== ANNA HELP — IMMAGINE AH3 COME ETICHETTA ===== */
+
 .annahelp-hero-image{
-  display: flex !important;
-  justify-content: center !important;
-  margin: 8px 0 6px !important;
-  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  margin: 8px 0 6px;
+  padding: 0;
+
+  overflow-x: hidden;   /* BLOCCA SCROLL ORIZZONTALE */
 }
 
 .annahelp-hero-img{
-  display: block !important;
-  width: auto !important;
-  height: auto !important;
+  display: block;
 
-  max-width: 520px !important;   /* ← etichetta, non banner */
-  max-height: none !important;
+  width: 100%;          /* fluido */
+  max-width: 520px;     /* ETICHETTA su desktop */
+  height: auto;
 
-  filter: drop-shadow(0 0 18px rgba(0,255,255,.35)) !important;
+  filter: drop-shadow(0 0 14px rgba(0,255,255,.35));
 }
+
+/* Mobile: un filo più compatta */
+@media (max-width: 600px){
+  .annahelp-hero-img{
+    max-width: 88vw;    /* MA SOLO QUI */
+    filter: drop-shadow(0 0 10px rgba(0,255,255,.30));
+  }
+}
+
 
 /* === ANNA HELP: BADGE UI === */
 .annahelp-hero {
@@ -1073,4 +1087,26 @@ body {
 .annahelp-title,
 h2 {
   margin-top: 6px;
+}
+
+@media (max-width: 600px) {
+  .annahelp-hero-image {
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  h2 {
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .annahelp-hero-img {
+    filter: drop-shadow(0 0 12px rgba(0,255,255,.35));
+  }
+}
+
+.page, main, section {
+  overflow-x: hidden;
 }
