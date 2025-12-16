@@ -618,9 +618,10 @@ body {
 /* ===== ANNA, HELP! ✈️ — TERMINAL STYLE ===== */
 
 .annahelp-terminal {
-  margin: 24px auto 0;
-  max-width: 760px;
-  padding: 22px 20px;
+  max-width: 880px;      /* un po’ più largo */
+  padding: 2.2rem;       /* più aria dentro */
+  margin: 0 auto;
+
   border-radius: 14px;
 
   background: radial-gradient(circle at 0% 0%, rgba(0, 255, 200, 0.3), transparent 50%),
@@ -661,7 +662,11 @@ body {
 .annahelp-list-terminal {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0;.annahelp-desc {
+  font-size: 1.05rem;
+  line-height: 1.65;     /* PIÙ respiro */
+}
+
 }
 
 .annahelp-list-terminal li {
@@ -924,4 +929,148 @@ body {
   .annahelp-link{
     animation: none !important;
   }
+}
+
+.annahelp-hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0 2.5rem;
+  padding: 0;
+  max-height: none;       /* ← QUESTA È LA CHIAVE */
+  overflow: hidden;      /* ← taglia l’eccesso */
+}
+
+.annahelp-hero-img {
+  width: 100%;
+  max-width: 820px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 40px rgba(0,0,0,0.45));
+}
+
+  <main class="page">
+
+    <section class="annahelp-hero-image">
+  <img src="AH3.png"
+       alt="Anna, HELP! servizio d'urgenza"
+       class="annahelp-hero-img">
+</section>
+
+/* Anna Help: hero finale compatta */
+.page .hero {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+/* Footer attaccato alla hero */
+.footer {
+  margin-top: 0;
+  padding-top: 30px;
+}
+
+/* FIX Anna Help – spazio voluto sotto "Ovunque tu sia" */
+.anna-bottom {
+  margin-bottom: 0;
+}
+
+.divider {
+  margin-bottom: 0px;
+}
+
+.footer-hero {
+  padding-top: 160px;
+  padding-bottom: 0;
+}
+
+.annahelp-hero-visual img {
+  width: auto;
+  max-width: 520px;   /* ← dimensione ETICHETTA */
+  height: auto;
+
+  display: block;
+
+  /* opzionale ma consigliato */
+  filter: drop-shadow(0 0 18px rgba(0,255,255,.35));
+}
+
+/* ===== FIX: immagine AH3 come ETICHETTA (override finale) ===== */
+.annahelp-hero-image{
+  display: flex !important;
+  justify-content: center !important;
+  margin: 8px 0 6px !important;
+  padding: 0 !important;
+}
+
+.annahelp-hero-img{
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+
+  max-width: 520px !important;   /* ← etichetta, non banner */
+  max-height: none !important;
+
+  filter: drop-shadow(0 0 18px rgba(0,255,255,.35)) !important;
+}
+
+/* === ANNA HELP: BADGE UI === */
+.annahelp-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem 2rem;
+  position: relative;
+}
+
+/* L’ETICHETTA */
+.annahelp-badge {
+  max-width: 820px;
+  width: 100%;
+  height: auto;
+
+  /* FUSIONE CON IL SITO */
+  background: transparent;
+  mix-blend-mode: screen;
+
+  /* MORBIDEZZA */
+  filter:
+    drop-shadow(0 0 25px rgba(255, 100, 220, 0.45))
+    drop-shadow(0 0 60px rgba(0, 200, 255, 0.25));
+
+  /* NO RETTANGOLO */
+  border-radius: 0;
+
+  /* ANIMAZIONE LEGGERA */
+  animation: anna-float 6s ease-in-out infinite;
+}
+
+/* respiro */
+@keyframes anna-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* === FIX TITOLI ANNA HELP (senza effetti collaterali) === */
+
+.anna-section h2 {
+  font-size: 2.1rem;        /* più grande */
+  margin-top: 1.5rem;       /* più vicino all’immagine */
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+.annahelp-subtitle {
+  font-size: 1.1rem;     /* leggermente più grande */
+  font-weight: 700;      /* grassetto */
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.annahelp-title,
+h2 {
+  margin-top: 6px;
 }
