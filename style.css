@@ -718,3 +718,12 @@ body {
   margin: 10px 0 18px 0;
   opacity: 0.9;
 }
+
+.annahelp-claim {
+  font-family: 'Graduate', cursive;
+  text-align: center;
+  margin: 22px 0 30px;
+  letter-spacing: 0.08em;
+  color: #eaffff;
+  text-shadow: 0 0 10px rgba(0,255,255,0.35);
+}
