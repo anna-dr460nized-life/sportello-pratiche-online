@@ -1710,3 +1710,143 @@ h2 {
   margin-top: 0;
   padding-top: 48px;
 }
+
+/* ===============================
+   FIX DEFINITIVO SPAZI ANNA HELP
+   =============================== */
+
+.annahelp-page h2 {
+  margin-top: 48px !important;
+  margin-bottom: 22px !important;
+  font-size: 2.6rem;
+}
+
+.annahelp-page .annahelp-subtitle {
+  margin-top: 18px !important;
+  margin-bottom: 36px !important;
+  font-size: 1.35rem;
+  letter-spacing: 0.12em;
+}
+
+.annahelp-page .annahelp-terminal {
+  margin-top: 24px !important;
+  margin-bottom: 42px !important;
+}
+
+.annahelp-page .divider {
+  margin-top: 32px !important;
+  margin-bottom: 48px !important;
+}
+
+.annahelp-page .hero {
+  margin-top: 40px !important;
+}
+
+/* ===== PAYOFF "OVUNQUE TU SIA" ===== */
+
+.annahelp-page .anna-bottom {
+  margin-top: 28px !important;
+  margin-bottom: 20px !important;
+
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  color: #eaffff;
+
+  text-shadow:
+    0 0 6px rgba(0,255,255,0.6),
+    0 0 14px rgba(0,255,255,0.45),
+    0 0 28px rgba(0,255,255,0.25);
+}
+
+
+/* ===== ANNA HELP – BOX LEGGIBILITÀ ===== */
+
+.annahelp-page .annahelp-terminal {
+  padding: 2.8rem !important;
+}
+
+.annahelp-page .annahelp-desc {
+  font-size: 1.18rem;
+  line-height: 1.75;
+  margin-bottom: 22px;
+}
+
+/* elenco */
+.annahelp-page .annahelp-list-terminal li {
+  line-height: 1.7;
+  margin: 14px 0;
+}
+
+/* spunte = stesso colore del prompt */
+.annahelp-page .annahelp-list-terminal li::marker {
+  color: #00f7ff;
+}
+
+.annahelp-page .annahelp-check {
+  color: #00f7ff;
+  text-shadow:
+    0 0 6px rgba(0,247,255,0.7),
+    0 0 14px rgba(0,247,255,0.4);
+}
+
+/* ===== ANNAHELP: spacing pulito tra prompt e testo (senza spunte extra) ===== */
+.annahelp-page .annahelp-list-terminal{
+  margin-top: 14px;
+}
+
+.annahelp-page .annahelp-list-terminal li{
+  display: flex;
+  align-items: center;
+  gap: 14px;          /* spazio tra PROMPT e resto */
+  margin: 12px 0;     /* più respiro tra righe */
+  line-height: 1.45;
+}
+
+/* prompt fisso (cyan) */
+.annahelp-page .annahelp-prompt{
+  flex: 0 0 auto;
+}
+
+/* prende TUTTO il resto della riga (dove c'è ✔ + testo) */
+.annahelp-page .annahelp-list-terminal li{
+  /* niente altro */
+}
+
+.annahelp-page .annahelp-check{
+  color: #00f7ff;
+  text-shadow:
+    0 0 6px rgba(0,247,255,0.75),
+    0 0 14px rgba(0,247,255,0.45);
+  font-weight: 900;
+}
+/* ===== ANNA HELP — MOBILE FIX DEFINITIVO ===== */
+@media (max-width: 640px) {
+
+  .annahelp-page .annahelp-list-terminal li {
+    display: block;
+    margin: 18px 0;
+  }
+
+  /* prompt sopra */
+  .annahelp-page .annahelp-prompt {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+
+  /* spunta + testo */
+  .annahelp-page .annahelp-list-terminal li {
+    line-height: 1.6;
+  }
+
+  /* spunta all’inizio */
+  .annahelp-page .annahelp-check {
+    margin-right: 8px;
+    font-size: 1.1rem;
+    vertical-align: middle;
+  }
+
+}
