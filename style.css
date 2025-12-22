@@ -1280,18 +1280,24 @@ h2 {
 
 .cookie-banner {
   position: fixed;
-  bottom: 20px;
+  bottom: 90px; /* 🔑 questo è il trucco */
   left: 50%;
   transform: translateX(-50%);
   max-width: 520px;
+  width: calc(100% - 32px);
   padding: 14px 18px;
   border-radius: 14px;
-  background: rgba(5,5,25,0.85);
+
+  background: rgba(5, 5, 25, 0.88);
   color: #fff;
   font-size: 0.9rem;
+
   display: none;
   z-index: 9999;
-  box-shadow: 0 0 20px rgba(0,255,255,0.25);
+
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.25),
+    0 0 40px rgba(0,120,255,0.15);
 }
 
 .cookie-banner a {
@@ -1306,4 +1312,401 @@ h2 {
   border: none;
   font-weight: 700;
   cursor: pointer;
+}
+
+.cookie-banner {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .cookie-banner {
+    bottom: 120px;
+    font-size: 0.85rem;
+  }
+}
+
+.pill-wide {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === OVERRIDE DEFINITIVO SPAZI ANNA HELP === */
+
+.annahelp-page .hero,
+.annahelp-page .anna-section,
+.annahelp-page .footer {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+/* === FIX TITOLI ANNA HELP (SICURO) === */
+.annahelp-page h2 {
+  margin-top: 12px;
+  margin-bottom: 8px;
+}
+
+.annahelp-page .annahelp-subtitle {
+  margin-top: 6px;
+  margin-bottom: 18px;
+}
+
+/* =========================================================
+   FIX COMPATTO SOLO PER PAGINA ANNAHELP (NO DANNI SU INDEX)
+   ========================================================= */
+
+.annahelp-page{
+  padding-bottom: 0 !important;
+}
+
+/* Immagine hero: niente “aria” sopra/sotto */
+.annahelp-page .annahelp-hero-image{
+  margin: 0 auto 10px !important;
+  padding: 0 !important;
+}
+
+/* Sezione contenuto: meno padding verticale */
+.annahelp-page .section{
+  padding-top: 10px !important;
+  padding-bottom: 14px !important;
+}
+
+/* Titolo e sottotitolo: ravvicinati */
+.annahelp-page h2{
+  margin: 8px 0 6px !important;
+}
+.annahelp-page .annahelp-subtitle{
+  margin: 0 0 12px !important;
+}
+
+/* Box terminal: toglie margini strani e lo rende più “tight” */
+.annahelp-page .annahelp-terminal{
+  margin: 0 auto 12px !important;
+  padding: 18px 16px !important;
+}
+
+/* “Ovunque tu sia” e divider: niente buco enorme sotto */
+.annahelp-page .anna-bottom{
+  margin: 10px 0 8px !important;
+}
+.annahelp-page .divider{
+  margin: 12px auto 6px !important;
+}
+
+/* LA FIRMA (header.hero): qui stava il buco principale */
+.annahelp-page .hero{
+  padding: 14px 16px 16px !important;
+  margin: 0 !important;
+}
+
+/* Footer: attaccato, senza stacco “da 64px” */
+.annahelp-page .footer{
+  margin-top: 10px !important;
+  margin-bottom: 24px !important;
+  padding-top: 20px !important;
+}
+
+  /* =========================
+   FIX SPACING — SOLO ANNA HELP
+   (non tocca la home)
+   ========================= */
+
+.annahelp-page .annahelp-hero-image{
+  margin: 8px 0 10px !important;
+}
+
+.annahelp-page .section.anna-section{
+  padding-top: 10px !important;
+  padding-bottom: 18px !important;
+}
+
+.annahelp-page .annahelp-terminal{
+  padding: 18px 16px !important;   /* prima era 2.2rem = troppo */
+  margin: 12px auto 12px !important;
+}
+
+.annahelp-page h2{
+  margin: 10px 0 8px !important;
+}
+
+.annahelp-page .annahelp-subtitle{
+  margin: 6px 0 14px !important;
+}
+
+.annahelp-page .anna-bottom{
+  margin-top: 12px !important;
+  margin-bottom: 0 !important;
+}
+
+.annahelp-page .divider{
+  margin: 14px auto 0 !important;
+}
+
+/* firma+footer più “vicini” */
+.annahelp-page .hero{
+  padding: 18px 16px 14px !important;
+}
+
+.annahelp-page .footer{
+  margin-top: 14px !important;
+}
+
+/* ===========================
+   ANNA HELP – FORCE COMPACT
+   override finale
+   =========================== */
+
+.annahelp-page .section.anna-section{
+  padding-top: 6px !important;
+  padding-bottom: 14px !important;
+}
+
+.annahelp-page .annahelp-terminal{
+  padding: 14px 14px !important;
+  margin: 8px auto !important;
+}
+
+.annahelp-page h2{
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
+
+.annahelp-page .annahelp-subtitle{
+  margin: 2px 0 10px !important;
+}
+
+.annahelp-page .anna-bottom{
+  margin-top: 8px !important;
+  margin-bottom: 0 !important;
+}
+
+.annahelp-page .divider{
+  margin: 8px auto 0 !important;
+}
+
+.annahelp-page .hero{
+  padding-top: 10px !important;
+  padding-bottom: 8px !important;
+}
+
+.annahelp-page .footer{
+  margin-top: 10px !important;
+}
+
+/* === ANNA HELP: riempi i fianchi con glow laterali (solo estetica) === */
+.annahelp-page .annahelp-hero-image{
+  position: relative;
+  isolation: isolate; /* evita mix strani con altri layer */
+}
+
+.annahelp-page .annahelp-hero-image::before,
+.annahelp-page .annahelp-hero-image::after{
+  content:"";
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(28vw, 260px);
+  height: min(36vh, 320px);
+  pointer-events:none;
+  z-index: -1;
+  filter: blur(18px);
+  opacity: .75;
+}
+
+.annahelp-page .annahelp-hero-image::before{
+  left: -6vw;
+  background: radial-gradient(circle, rgba(0,255,200,.55), rgba(0,255,200,0) 70%);
+}
+
+.annahelp-page .annahelp-hero-image::after{
+  right: -6vw;
+  background: radial-gradient(circle, rgba(255,0,200,.45), rgba(255,0,200,0) 70%);
+}
+
+/* mobile: meno invasivo */
+@media (max-width: 600px){
+  .annahelp-page .annahelp-hero-image::before,
+  .annahelp-page .annahelp-hero-image::after{
+    width: 34vw;
+    opacity: .55;
+    filter: blur(16px);
+  }
+}
+
+/* ===== ANNA HELP — SCIE LATERALI GRANDI (ARIA SPOSTATA) ===== */
+
+.annahelp-hero-image {
+  position: relative;
+  overflow: visible;
+}
+
+/* BASE COMUNE */
+.annahelp-hero-image::before,
+.annahelp-hero-image::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 320px;
+  height: 180px;
+  pointer-events: none;
+  opacity: 0.85;
+  filter: blur(22px);
+}
+
+/* SCIA SINISTRA */
+.annahelp-hero-image::before {
+  left: -260px;
+  transform: translateY(-50%) rotate(-8deg);
+  background: radial-gradient(
+    ellipse at right center,
+    rgba(0,255,220,0.55),
+    rgba(0,255,220,0.25) 40%,
+    rgba(255,80,220,0.18) 65%,
+    transparent 75%
+  );
+}
+
+/* SCIA DESTRA */
+.annahelp-hero-image::after {
+  right: -260px;
+  transform: translateY(-50%) rotate(8deg);
+  background: radial-gradient(
+    ellipse at left center,
+    rgba(0,255,220,0.55),
+    rgba(0,255,220,0.25) 40%,
+    rgba(255,80,220,0.18) 65%,
+    transparent 75%
+  );
+}
+
+/* MOBILE: meno larghe ma ANCORA VISIBILI */
+@media (max-width: 600px) {
+  .annahelp-hero-image::before,
+  .annahelp-hero-image::after {
+    width: 220px;
+    height: 120px;
+    opacity: 0.7;
+    filter: blur(18px);
+  }
+
+  .annahelp-hero-image::before { left: -180px; }
+  .annahelp-hero-image::after  { right: -180px; }
+}
+
+/* ===== ANNA HELP — TITOLI PIÙ GRANDI + NEON (SAFE OVERRIDE) ===== */
+
+/* Titolo: "Anna, HELP! ✈️ è un servizio d’urgenza." */
+.annahelp-page .anna-section h2{
+  font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+  line-height: 1.1;
+  margin: 18px 0 14px; /* più spazio sotto */
+  letter-spacing: 1px;
+
+  /* glow neon (senza cambiare colore del testo) */
+  text-shadow:
+    0 0 10px rgba(0,255,220,.55),
+    0 0 20px rgba(0,255,220,.35),
+    0 0 28px rgba(255,80,220,.28),
+    0 0 40px rgba(255,80,220,.18);
+}
+
+/* Sottotitolo: "DELEGA I TUOI PROBLEMI!" */
+.annahelp-page .annahelp-subtitle{
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  font-weight: 900;
+  letter-spacing: .12em;
+  margin: 0 0 26px; /* più distanza dal blocco sotto */
+  opacity: 1;
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,.18),
+    0 0 16px rgba(0,255,220,.32),
+    0 0 26px rgba(255,80,220,.22);
+}
+
+/* ===== ANNA HELP — TITOLI PIÙ GRANDI + NEON (SAFE OVERRIDE) ===== */
+
+/* Titolo: "Anna, HELP! ✈️ è un servizio d’urgenza." */
+.annahelp-page .anna-section h2{
+  font-size: clamp(2.1rem, 4.2vw, 3.1rem);
+  line-height: 1.1;
+  margin: 18px 0 14px; /* più spazio sotto */
+  letter-spacing: 1px;
+
+  /* glow neon (senza cambiare colore del testo) */
+  text-shadow:
+    0 0 10px rgba(0,255,220,.55),
+    0 0 20px rgba(0,255,220,.35),
+    0 0 28px rgba(255,80,220,.28),
+    0 0 40px rgba(255,80,220,.18);
+}
+
+/* Sottotitolo: "DELEGA I TUOI PROBLEMI!" */
+.annahelp-page .annahelp-subtitle{
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  font-weight: 900;
+  letter-spacing: .12em;
+  margin: 0 0 26px; /* più distanza dal blocco sotto */
+  opacity: 1;
+
+  text-shadow:
+    0 0 8px rgba(255,255,255,.18),
+    0 0 16px rgba(0,255,220,.32),
+    0 0 26px rgba(255,80,220,.22);
+}
+
+/* === SPAZIO TITOLI ANNA HELP === */
+.annahelp-page .anna-section h2{
+  margin-bottom: 36px; /* distanza dal sottotitolo */
+}
+
+.annahelp-page .annahelp-subtitle{
+  margin-bottom: 40px; /* distanza dal box */
+}
+
+/* ================================
+   FIX REALI SPAZI – ANNA HELP PAGE
+   ================================ */
+
+/* 1️⃣ Spazio sotto l’immagine Anna HELP */
+.annahelp-page .annahelp-hero-image {
+  margin-bottom: 64px;
+}
+
+/* 2️⃣ Titolo principale */
+.annahelp-page h2 {
+  margin-top: 0;
+  margin-bottom: 28px; /* distanza dal sottotitolo */
+}
+
+/* 3️⃣ Sottotitolo */
+.annahelp-page .annahelp-subtitle {
+  margin-top: 0;
+  margin-bottom: 40px; /* distanza dal box vetro */
+  display: block;
+}
+
+/* 4️⃣ Box vetro */
+.annahelp-page .annahelp-terminal {
+  margin-top: 0;
+  margin-bottom: 48px;
+}
+
+/* 5️⃣ “Ovunque tu sia” */
+.annahelp-page .anna-bottom {
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+/* 6️⃣ Divider */
+.annahelp-page .divider {
+  margin-top: 24px;
+  margin-bottom: 64px;
+}
+
+/* 7️⃣ Logo / hero finale */
+.annahelp-page .hero {
+  margin-top: 0;
+  padding-top: 48px;
 }
