@@ -219,18 +219,22 @@
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    if (!localStorage.getItem("cookieAccepted")) {
-      document.getElementById("cookie-banner").style.display = "block";
-    }
+document.addEventListener("DOMContentLoaded", function () {
+  const banner = document.getElementById("cookie-banner");
+  const btn = document.getElementById("cookie-accept");
 
-    document.getElementById("cookie-accept").addEventListener("click", function () {
-      localStorage.setItem("cookieAccepted", "true");
-      document.getElementById("cookie-banner").style.display = "none";
-    });
+  if (!banner || !btn) return;
+
+  if (!localStorage.getItem("cookieAccepted")) {
+    document.body.classList.add("show-cookie");
+  }
+
+  btn.addEventListener("click", function () {
+    localStorage.setItem("cookieAccepted", "true");
+    document.body.classList.remove("show-cookie");
   });
+});
 </script>
-
 
 
 </body>

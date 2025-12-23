@@ -2929,3 +2929,255 @@ h2 + .btn-secondary {
     filter: saturate(1.05) contrast(1.03);
   }
 }
+
+/* SPAZIO FINALE TATTILE — garantito */
+.footer { padding-bottom: 34px !important; }
+
+@media (max-width: 768px){
+  .footer { padding-bottom: 52px !important; }
+}
+
+/* bonus: se hai barre di sistema, aggiunge spazio “intelligente” */
+@supports(padding: max(0px)){
+  .footer { padding-bottom: max(34px, env(safe-area-inset-bottom)) !important; }
+  @media (max-width: 768px){
+    .footer { padding-bottom: max(52px, env(safe-area-inset-bottom)) !important; }
+  }
+}
+
+/* ===== FIX SPAZIO FINALE LEGAL (ULTIMA REGOLA) ===== */
+
+.legal-links{
+  margin-top: 12px !important;
+  margin-bottom: 24px !important; /* SPAZIO PER IL CURSORE */
+}
+
+.footer{
+  padding-bottom: 48px !important;
+}
+
+/* sicurezza mobile */
+@media (max-width: 768px){
+  .legal-links{
+    margin-bottom: 40px !important;
+  }
+  .footer{
+    padding-bottom: max(56px, env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* === FIX DEFINITIVO: NO SFONDO ALLA PRIMA VIEWPORT SU ANNA HELP (MOBILE) === */
+@media (max-width: 768px){
+  body.annahelp-page::before{
+    content:none !important;
+    background:none !important;
+  }
+
+  body.annahelp-page{
+    background:#050010 !important;
+  }
+}
+/* ===== FIX BADGE ANNA HELP — MOBILE ===== */
+@media (max-width: 768px){
+
+  /* qualunque immagine hero / badge in alto */
+  .hero img,
+  .annahelp-hero img,
+  .annahelp-badge img,
+  img{
+    max-height: 55vh;          /* <<< chiave */
+    width: auto;
+    max-width: 90vw;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+  }
+
+}
+
+@media (max-width: 640px){
+  .annahelp-card{ display: block; }
+  .annahelp-prompt{
+    display: block;
+    margin-bottom: 6px;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .annahelp-line{ align-items: flex-start; }
+}
+
+/* =========================
+   PATCH CHIRURGICO — FIX OVERLAP + COOKIE
+   incolla in FONDO al CSS
+   ========================= */
+
+/* 1) Il bottone rosa non deve schiacciare il contenuto */
+.annahelp-link{
+  position: sticky;
+  top: 12px !important;
+  right: 16px !important;
+  z-index: 20 !important;
+  margin: 0 !important;
+}
+
+/* Spazio sopra la hero, così logo/titolo NON finiscono sotto al bottone fisso */
+.hero{
+  padding-top: 96px !important; /* crea “zona di sicurezza” */
+}
+
+/* 2) Logo e titolo: mai sovrapposti su mobile */
+@media (max-width: 520px){
+  .logo-circle{
+    width: 128px !important;
+    height: 128px !important;
+  }
+
+  .hero-title{
+    margin-top: 14px !important;
+    font-size: 2.2rem !important;
+    line-height: 1.05 !important;
+  }
+}
+
+/* 3) Cookie banner: mai troncato, sempre sopra la WhatsApp */
+.cookie-banner{
+  position:fixed;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+
+  bottom: calc(110px + env(safe-area-inset-bottom)) !important; /* sopra WA */
+  top: auto !important;
+
+  max-height: none !important;
+  overflow: visible !important;
+
+  display: block !important; /* se lo mostri via JS, resta ok */
+  z-index: 9998 !important;
+  body{
+  padding-bottom: 140px;
+}
+}
+
+
+.hero{
+  padding-top: 120px !important;
+}
+
+
+@media (max-width: 600px){
+  .logo-circle{
+    width: 140px;
+    height: 140px;
+  }
+
+  .hero-title{
+    margin-top: 16px;
+    line-height: 1.1;
+    position: relative;
+    z-index: 1;
+  }
+}
+.cookie-banner{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 120px;
+
+  width: calc(100% - 32px);
+  max-width: 520px;
+
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  overflow: visible;
+  height: auto;
+
+  z-index: 9998;
+}
+
+
+.annahelp-link{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 10000;
+}
+
+/* SPAZIO DI SICUREZZA PER LA HERO */
+.hero{
+  padding-top: 140px !important;
+}
+
+.cookie-banner{
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 140px;
+
+  width: calc(100% - 32px);
+  max-width: 520px;
+
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  background: rgba(5,5,25,.92);
+  color: #fff;
+
+  height: auto;
+  overflow: visible;
+
+  z-index: 9999;
+}
+
+@media (max-width: 600px){
+  .logo-circle{
+    width: 140px;
+    height: 140px;
+    margin-top: 12px;
+  }
+
+  .hero-title{
+    margin-top: 18px;
+    line-height: 1.1;
+    z-index: 1;
+    position: relative;
+  }
+}
+
+/* === COOKIE: quando accettato, NON DEVE MAI RIAPPARIRE === */
+#cookie-banner {
+  display: none;
+}
+
+body.show-cookie #cookie-banner {
+  display: block;
+}
+
+/* === HERO MOBILE: basta sovrapposizioni === */
+.hero {
+  padding-top: 110px; /* spazio per Anna HELP */
+}
+
+@media (max-width: 600px) {
+  .logo-circle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-title {
+    margin-top: 16px;
+    font-size: 2.1rem;
+  }
+
+  .annahelp-link {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo img {
+    max-width: 100%;
+    height: auto;
+  }
+}
