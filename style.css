@@ -1822,62 +1822,505 @@ h2 {
     0 0 14px rgba(0,247,255,0.45);
   font-weight: 900;
 }
-/* ===== ANNA HELP — MOBILE FIX DEFINITIVO ===== */
-@media (max-width: 640px) {
+/
 
-  .annahelp-page .annahelp-list-terminal li {
-    display: block;
-    margin: 18px 0;
-  }
+/* ===== FIX MOBILE LISTA ANNA HELP ===== */
+@media (max-width: 600px) {
 
-  /* prompt sopra */
-  .annahelp-page .annahelp-prompt {
-    display: block;
+  .annahelp-prompt {
+    display: inline-block;
     margin-bottom: 6px;
-    font-size: 0.95rem;
+    font-size: 0.95em;
   }
 
-  /* spunta + testo */
-  .annahelp-page .annahelp-list-terminal li {
+  .annahelp-list-terminal li {
+    display: block;
+    margin-bottom: 18px;
     line-height: 1.6;
   }
 
-  /* spunta all’inizio */
-  .annahelp-page .annahelp-check {
-    margin-right: 8px;
-    font-size: 1.1rem;
-    vertical-align: middle;
+  .annahelp-list-terminal li::marker {
+    font-size: 1.1em;
   }
-
 }
 
-@media (max-width: 640px) {
+/* OVERRIDE SICURO – solo font per "Ovunque tu sia!" */
+.anna-bottom {
+  font-family: 'Graduate', serif;
+}
 
-  /* ogni voce è verticale */
-  .annahelp-list-terminal li {
-    display: block;
-    margin: 20px 0;
+/* =========================================
+   ANNA HELP – LISTA PIÙ VIVA (NO COLONNE)
+   ========================================= */
+
+.annahelp-list-terminal li {
+  display: flex;
+  align-items: baseline;   /* testo sulla stessa linea visiva */
+  gap: 8px;                /* meno distanza = più unità */
+  margin: 14px 0;
+}
+
+/* Prompt + spunta più forti */
+.annahelp-prompt {
+  font-weight: 800;
+  font-size: 1.05rem;
+  white-space: nowrap;
+}
+
+.annahelp-check {
+  margin-left: -4px;       /* avvicina spunta al prompt */
+  font-weight: 900;
+}
+
+/* Testo: più vicino, più grande, più deciso */
+.annahelp-list-terminal li span + span + span,
+.annahelp-list-terminal li > span:last-child {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+/* =========================================
+   ANNA HELP – RIDUZIONE SPAZIO SOPRA IL TITOLO
+   ========================================= */
+
+.annahelp-page .annahelp-hero-image {
+  margin-bottom: 32px;
+}
+
+.annahelp-page .anna-section h2 {
+  margin-top: 0;
+}
+
+.annahelp-terminal {
+  font-size: 1.05rem;
+}
+
+.annahelp-terminal {
+  font-size: 1.05rem;
+}
+
+/* =========================================
+   ANNA HELP – BOTTONE "DELEGA I TUOI PROBLEMI"
+   (stesso stile dei CTA esistenti)
+   ========================================= */
+
+.annahelp-toggle {
+  margin: 18px auto 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+/* === Anna HELP – vetro base condiviso === */
+.annahelp-glass{
+  margin: 18px 0;                 /* aria tra i riquadri */
+  padding: 18px 22px;
+  border-radius: 14px;
+
+  background:
+    radial-gradient(circle at 0% 0%, rgba(0,255,200,.25), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(255,0,200,.18), transparent 55%),
+    rgba(5,5,25,.78);
+
+  box-shadow:
+    0 0 18px rgba(0,255,200,.45),
+    0 0 34px rgba(255,0,200,.28);
+}
+
+/* riquadro descrizione */
+.annahelp-desc-box .annahelp-desc{
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin: 0 0 10px;
+}
+.annahelp-desc-box .annahelp-desc:last-child{
+  margin-bottom: 0;
+}
+
+/* riquadro singolo prompt */
+.annahelp-card{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* prompt */
+.annahelp-prompt{
+  font-weight: 700;
+  color: #00f7ff;
+  white-space: nowrap;
+  text-shadow: 0 0 6px rgba(0,247,255,.7);
+}
+
+/* riga spunta + testo (UNITÀ VISIVA) */
+.annahelp-line{
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+/* spunta vicina al testo */
+.annahelp-check{
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #00f7ff;
+  text-shadow:
+    0 0 6px rgba(0,247,255,.7),
+    0 0 14px rgba(0,247,255,.4);
+}
+
+/* === Anna HELP – correzione layout card === */
+
+/* card più "importante", non barra */
+.annahelp-card{
+  padding: 14px 18px;   /* prima era troppo */
+  margin: 14px 0;      /* più compatto, più umano */
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0,255,200,.22),
+      rgba(255,0,200,.18)
+    ),
+    rgba(8,8,30,.82);
+
+  box-shadow:
+    0 0 22px rgba(0,255,200,.45),
+    0 0 42px rgba(255,0,200,.35);
+}
+
+/* layout UNICO: prompt + spunta + testo */
+.annahelp-card{
+  display: flex;
+  align-items: center;
+  gap: 12px; /* vicino, ma non soffocato */
+}
+
+/* prompt a sinistra, deciso */
+.annahelp-prompt{
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #00f7ff;
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-shadow:
+    0 0 6px rgba(0,247,255,.8),
+    0 0 14px rgba(0,247,255,.4);
+}
+
+/* riga spunta + testo = UN BLOCCO */
+.annahelp-line{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+/* spunta attaccata al testo */
+.annahelp-check{
+  font-size: 1.05rem;
+  margin-top: 1px; /* micro-allineamento ottico */
+}
+  color: #00f7ff;
+  flex-shrink: 0;
+  text-shadow:
+    0 0 6px rgba(0,247,255,.7),
+    0 0 14px rgba(0,247,255,.5);
+}
+
+@media (max-width: 600px){
+  .annahelp-card{
+    padding: 16px 18px;
   }
+}
 
-  /* prompt sempre su riga propria */
-  .annahelp-prompt {
-    display: block;
-    margin-bottom: 6px;
-    white-space: nowrap;
+/* =========================================================
+   ANNA HELP — CARD ALLINEATE (stessa larghezza, testo in riga)
+   Incolla in FONDO al CSS
+   ========================================================= */
+
+.annahelp-list-terminal{
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+}
+
+.annahelp-list-terminal li{
+  /* stessa larghezza per tutte le card */
+  width: min(860px, 92%);
+  margin: 14px auto;           /* centra e spazia */
+  padding: 14px 18px;
+  border-radius: 16px;
+
+  /* vetro neon */
+  background:
+    linear-gradient(135deg, rgba(0,255,200,.18), rgba(255,0,200,.14)),
+    rgba(8,8,30,.78);
+
+  box-shadow:
+    0 0 18px rgba(0,255,200,.28),
+    0 0 34px rgba(255,0,200,.22);
+
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+
+  /* layout stabile: prompt | check | testo */
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+
+  /* spazio “intelligente”: più aria tra prompt e check */
+  column-gap: 14px;
+}
+
+/* prompt: deciso, non va a capo */
+.annahelp-prompt{
+  font-weight: 800;
+  white-space: nowrap;
+  color: #00f7ff;
+  text-shadow: 0 0 8px rgba(0,247,255,.6);
+}
+
+/* spunta: più vicina al testo che al prompt */
+.annahelp-check{
+  font-size: 1.15rem;
+  margin-left: 6px;      /* la stacca dal prompt */
+  margin-right: 6px;     /* la avvicina al testo */
+  color: #00f7ff;
+  text-shadow: 0 0 8px rgba(0,247,255,.55);
+}
+
+/* testo: “non timido” */
+.annahelp-text{
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.45;
+  text-align: left;      /* testo leggibile, non centrato */
+}
+
+/* mobile: stessa logica, solo un filo più compatto */
+@media (max-width: 600px){
+  .annahelp-list-terminal li{
+    width: min(560px, 92%);
+    padding: 14px 14px;
+    column-gap: 10px;
   }
-
-  /* riga spunta + testo */
-  .annahelp-list-terminal li::after {
-    content: "";
-    display: block;
-    clear: both;
+  .annahelp-text{
+    font-size: 1rem;
   }
+}
 
-  /* spunta all’inizio del testo */
-  .annahelp-check {
-    display: inline-block;
-    margin-right: 10px;
-    vertical-align: top;
+/* =====================================================
+   ANNA HELP — layout definitivo card (HTML invariato)
+   ===================================================== */
+
+/* contenitore card */
+.annahelp-card{
+  width: min(860px, 92%);
+  margin: 14px auto;
+  padding: 14px 18px;
+  border-radius: 16px;
+
+  background:
+    linear-gradient(135deg, rgba(0,255,200,.18), rgba(255,0,200,.14)),
+    rgba(8,8,30,.78);
+
+  box-shadow:
+    0 0 18px rgba(0,255,200,.28),
+    0 0 34px rgba(255,0,200,.22);
+
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+
+  /* === QUI È LA CHIAVE === */
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  column-gap: 12px;
+}
+
+/* prompt: parte della riga, non decorazione */
+.annahelp-prompt{
+  font-weight: 800;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  color: #00f7ff;
+  text-shadow: 0 0 8px rgba(0,247,255,.6);
+}
+
+/* annulla il layout interno precedente */
+.annahelp-line{
+  display: contents; /* <<<<<< QUESTO SISTEMA TUTTO */
+}
+
+/* spunta vicina al testo */
+.annahelp-check{
+  font-size: 1.15rem;
+  color: #00f7ff;
+  margin-left: 6px;
+  margin-right: 6px;
+  text-shadow: 0 0 8px rgba(0,247,255,.55);
+}
+
+/* testo: deciso, non timido */
+.annahelp-card span:last-child{
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}
+
+/* mobile: stessa logica, solo più compatta */
+@media (max-width: 600px){
+  .annahelp-card{
+    width: min(560px, 92%);
+    padding: 14px 14px;
   }
+}
 
+.annahelp-line{
+  display: contents;
+}
+
+/* ===== Anna HELP – card precise, non decorative ===== */
+
+.annahelp-card{
+  width: min(860px, 92%);
+  margin: 12px auto;
+  padding: 12px 16px;
+  border-radius: 14px;
+
+  background:
+    linear-gradient(135deg, rgba(0,255,200,.16), rgba(255,0,200,.12)),
+    rgba(8,8,30,.80);
+
+  box-shadow:
+    0 0 14px rgba(0,255,200,.25),
+    0 0 26px rgba(255,0,200,.20);
+
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(8px);
+
+  /* layout corretto */
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 14px;
+  align-items: center;
+}
+
+/* prompt: colonna 1, NON protagonista */
+.annahelp-prompt{
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #00e6e6;
+  white-space: nowrap;
+  opacity: .9;
+}
+
+/* linea testo + spunta = UN BLOCCO */
+.annahelp-line{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* spunta ATTACCATA AL TESTO */
+.annahelp-check{
+  font-size: 1rem;
+  color: #00f7ff;
+  flex-shrink: 0;
+}
+
+/* testo vero */
+.annahelp-line span:last-child{
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* mobile */
+@media (max-width: 600px){
+  .annahelp-card{
+    padding: 12px 14px;
+  }
+}
+
+.annahelp-desc-box{
+  max-width: 820px;
+  margin: 16px auto 18px;
+  padding: 14px 18px;
+}
+
+.annahelp-desc{
+  font-size: 0.95rem;   /* ← prima era troppo */
+  font-weight: 500;
+  line-height: 1.5;
+  opacity: .9;
+}
+
+.annahelp-prompt{
+  font-weight: 800;   /* ← torna deciso */
+  font-size: 0.9rem;
+  color: #00f7ff;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.annahelp-desc-box{
+  max-width: 820px;
+  margin: 16px auto 20px;
+  padding: 14px 18px;
+
+  text-align: left;          /* ← fondamentale */
+  display: block;            /* ← niente flex qui */
+}
+
+.annahelp-desc{
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.55;
+  margin: 0 0 8px 0;
+}
+
+.annahelp-desc-box{
+  max-width: 760px;      /* ← uguale alle card */
+  width: fit-content;
+  margin: 14px auto 18px;
+  padding: 12px 16px;
+
+  text-align: left;
+}
+
+/* === LARGHEZZA UNICA RIQUIDRI ANNA HELP === */
+.annahelp-glass{
+  max-width: 820px;      /* ← QUI SI DECIDE TUTTO */
+  width: 100%;
+  margin: 16px auto;    /* centrato, respiro umano */
+}
+
+.annahelp-prompt{
+  font-weight: 800;          /* GRASSETTO, deciso */
+  font-style: normal;       /* MAI corsivo */
+  font-size: 0.95rem;
+  color: #00f7ff;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  text-shadow:
+    0 0 6px rgba(0,247,255,.8),
+    0 0 14px rgba(0,247,255,.4);
 }

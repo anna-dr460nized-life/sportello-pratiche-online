@@ -232,5 +232,23 @@
   });
 </script>
 
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btnAnnaHelp = document.getElementById('btn-annahelp');
+  const annaHelpSection = document.getElementById('annahelp-section');
+
+  if (btnAnnaHelp && annaHelpSection) {
+    btnAnnaHelp.addEventListener('click', () => {
+      if (annaHelpSection.classList.contains('is-hidden')) {
+        annaHelpSection.classList.remove('is-hidden');
+        annaHelpSection.classList.add('is-visible');
+      }
+      annaHelpSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+});
+</script>
+
 </body>
 </html>

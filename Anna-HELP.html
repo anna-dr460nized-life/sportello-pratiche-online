@@ -24,63 +24,75 @@
 
 
     <!-- CONTENUTO -->
-    <section class="section anna-section">
+<section class="section anna-section" id="annahelp-section">
 
       <h2>Anna, HELP! ✈️ è un servizio d’urgenza.</h2>
+      <button class="btn-secondary annahelp-toggle" id="btn-annahelp">
+  DELEGA I TUOI PROBLEMI!
+</button>
 
-       <p class="annahelp-subtitle">DELEGA I TUOI PROBLEMI!</p>
 
-      <div class="annahelp-terminal">
+<div class="annahelp-glass annahelp-desc-box">
 
-        <p class="annahelp-desc">
-          Con <strong>Anna, HELP!✈️</strong> puoi delegare ciò che non vuoi,
-          o non puoi, fare di persona: file, documenti, sportelli difficili.
-        </p>
+  <p class="annahelp-desc">
+    Con <strong>Anna, HELP!✈️</strong> puoi delegare ciò che non vuoi,
+    o non puoi, fare di persona: file, documenti, sportelli difficili.
+  </p>
 
-        <p class="annahelp-desc">
-          Quando una pratica richiede tempo, presenza fisica o passaggi con
-          Uffici pubblici, puoi affidarla a me.
-        </p>
+  <p class="annahelp-desc">
+    Quando una pratica richiede tempo, presenza fisica o passaggi con
+    Uffici pubblici, puoi affidarla a me.
+  </p>
 
-        <ul class="annahelp-list-terminal">
-<li>
+</div>
+<div class="annahelp-glass annahelp-card">
   <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <span class="annahelp-check">✔</span>
-  Presenza fisica presso Uffici pubblici al posto tuo;
-</li>
+  <div class="annahelp-line">
+    <span class="annahelp-check">✔</span>
+    <span>Presenza fisica presso Uffici pubblici al posto tuo;</span>
+  </div>
+</div>
 
-<li>
+<div class="annahelp-glass annahelp-card">
   <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <span class="annahelp-check">✔</span>
-  Intermediazione diretta con gli Uffici;
-</li>          
+  <div class="annahelp-line">
+    <span class="annahelp-check">✔</span>
+    <span>Intermediazione diretta con gli Uffici;</span>
+  </div>
+</div>
 
-<li>
+<div class="annahelp-glass annahelp-card">
   <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <span class="annahelp-check">✔</span>
- Accesso agli atti e pratiche Comunali;
-</li>
+  <div class="annahelp-line">
+    <span class="annahelp-check">✔</span>
+    <span>Accesso agli atti e pratiche Comunali;</span>
+  </div>
+</div>
 
-<li>
+<div class="annahelp-glass annahelp-card">
   <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <span class="annahelp-check">✔</span>
-Accompagnamento o rappresentanza in Ufficio Immigrazione;
-</li>
+  <div class="annahelp-line">
+    <span class="annahelp-check">✔</span>
+    <span>Accompagnamento o rappresentanza in Ufficio Immigrazione;</span>
+  </div>
+</div>
 
-<li>
+<div class="annahelp-glass annahelp-card">
   <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <span class="annahelp-check">✔</span>
-Raccolta documenti;
-</li>
+  <div class="annahelp-line">
+    <span class="annahelp-check">✔</span>
+    <span>Raccolta documenti;</span>
+  </div>
+</div>
 
-<li>
+<div class="annahelp-glass annahelp-card">
   <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <span class="annahelp-check">✔</span>
-Coordinamento documentazione per pratiche notarili.
-</li>
-        </ul>
+  <div class="annahelp-line">
+    <span class="annahelp-check">✔</span>
+    <span>Coordinamento documentazione per pratiche notarili.</span>
+  </div>
+</div>
 
-      </div>
 
       <p class="anna-bottom"><strong>Ovunque tu sia! ✈️</strong></p>
       <div class="divider"></div>
@@ -134,5 +146,23 @@ Coordinamento documentazione per pratiche notarili.
     </footer>
 
   </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const btnAnnaHelp = document.getElementById('btn-annahelp');
+  const annaHelpSection = document.getElementById('annahelp-section');
+
+  if (btnAnnaHelp && annaHelpSection) {
+    btnAnnaHelp.addEventListener('click', () => {
+      annaHelpSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    });
+  }
+});
+</script>
+
 </body>
 </html>
+
