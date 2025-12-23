@@ -13,7 +13,7 @@
 </head>
 
 
-<body>
+<body class="page-home">
 
 <div id="cookie-banner" class="cookie-banner">
   <p>
@@ -78,8 +78,7 @@
        <button class="btn-primary" id="btn-steps">
          Scopri come funziona 
        </button>
-
-      
+           
    </header>
 
 
@@ -233,22 +232,6 @@
 </script>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const btnAnnaHelp = document.getElementById('btn-annahelp');
-  const annaHelpSection = document.getElementById('annahelp-section');
-
-  if (btnAnnaHelp && annaHelpSection) {
-    btnAnnaHelp.addEventListener('click', () => {
-      if (annaHelpSection.classList.contains('is-hidden')) {
-        annaHelpSection.classList.remove('is-hidden');
-        annaHelpSection.classList.add('is-visible');
-      }
-      annaHelpSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  }
-});
-</script>
 
 </body>
 </html>
