@@ -2329,32 +2329,147 @@ h2 {
 /* ===============================
    Anna HELP – Mobile layout fix
    =============================== */
+/* ======================================
+   Anna HELP – Mobile FIX definitivo
+   ====================================== */
+/* ======================================
+   Anna HELP – Mobile layout corretto
+   ====================================== */
 @media (max-width: 640px) {
 
-  .annahelp-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+  /* TUTTI i vetri: descrizione + card */
+  .annahelp-glass,
+  .annahelp-card,
+  .annahelp-desc-box {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
   }
 
-  /* Prompt a capo */
+  /* CARD elenco */
+  .annahelp-card {
+    display: block; /* basta flex sul mobile */
+    padding: 14px 16px;
+  }
+
+  /* PROMPT: sopra, a sinistra */
   .annahelp-prompt {
     display: block;
     width: 100%;
+    margin-bottom: 6px;
+
+    text-align: left;
     font-weight: 700;
     font-size: 0.95rem;
+
+    white-space: normal;
+    word-break: break-word;
   }
 
-  /* Riga spunta + testo */
+  /* Riga sotto: spunta + testo */
   .annahelp-line {
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    font-size: 1rem;
-    line-height: 1.45;
+
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
   }
 
   .annahelp-check {
+    flex-shrink: 0;
     margin-top: 2px;
+  }
+
+  /* TESTO descrizione sopra: niente sbordo */
+  .annahelp-desc-box {
+    padding: 16px;
+    text-align: left;
+  }
+
+}
+
+/* ======================================
+   Anna HELP – Mobile layout corretto
+   ====================================== */
+@media (max-width: 640px) {
+
+  /* TUTTI i vetri: descrizione + card */
+  .annahelp-glass,
+  .annahelp-card,
+  .annahelp-desc-box {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* CARD elenco */
+  .annahelp-card {
+    display: block; /* basta flex sul mobile */
+    padding: 14px 16px;
+  }
+
+  /* PROMPT: sopra, a sinistra */
+  .annahelp-prompt {
+    display: block;
+    width: 100%;
+    margin-bottom: 6px;
+
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.95rem;
+
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Riga sotto: spunta + testo */
+  .annahelp-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .annahelp-check {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* TESTO descrizione sopra: niente sbordo */
+  .annahelp-desc-box {
+    padding: 16px;
+    text-align: left;
+  }
+
+}
+
+/* Separatore # tra le due frasi (stesso mood del prompt) */
+.annahelp-sep{
+  text-align: center;
+  margin: 10px 0 12px;
+
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1;
+
+  color: #00f7ff; /* stesso colore prompt */
+  text-shadow:
+    0 0 6px rgba(0,247,255,.9),
+    0 0 14px rgba(0,247,255,.55),
+    0 0 26px rgba(0,247,255,.25);
+}
+
+/* mobile: un filo più compatto */
+@media (max-width: 640px){
+  .annahelp-sep{
+    font-size: 1.6rem;
+    margin: 8px 0 10px;
   }
 }
