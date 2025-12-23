@@ -2326,38 +2326,35 @@ h2 {
 }
 
 /* === Anna HELP – mobile layout === */
-@media (max-width: 600px) {
+/* ===============================
+   Anna HELP – Mobile layout fix
+   =============================== */
+@media (max-width: 640px) {
 
   .annahelp-card {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+  }
 
-    padding: 14px 16px;
+  /* Prompt a capo */
+  .annahelp-prompt {
+    display: block;
     width: 100%;
+    font-weight: 700;
+    font-size: 0.95rem;
   }
 
-  /* riga prompt + spunta */
-  .annahelp-card > .annahelp-prompt {
-    font-size: 0.9rem;
-    margin-bottom: 2px;
-  }
-
+  /* Riga spunta + testo */
   .annahelp-line {
-    width: 100%;
-    gap: 6px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
     font-size: 1rem;
-    line-height: 1.4;
+    line-height: 1.45;
   }
 
-  /* spunta ATTACCATA AL TESTO */
   .annahelp-check {
     margin-top: 2px;
-  }
-
-  /* testo va a tutta larghezza */
-  .annahelp-line span:last-child {
-    display: inline-block;
-    width: 100%;
   }
 }
