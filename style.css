@@ -2324,3 +2324,40 @@ h2 {
     0 0 6px rgba(0,247,255,.8),
     0 0 14px rgba(0,247,255,.4);
 }
+
+/* === Anna HELP – mobile layout === */
+@media (max-width: 600px) {
+
+  .annahelp-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    padding: 14px 16px;
+    width: 100%;
+  }
+
+  /* riga prompt + spunta */
+  .annahelp-card > .annahelp-prompt {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
+
+  .annahelp-line {
+    width: 100%;
+    gap: 6px;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* spunta ATTACCATA AL TESTO */
+  .annahelp-check {
+    margin-top: 2px;
+  }
+
+  /* testo va a tutta larghezza */
+  .annahelp-line span:last-child {
+    display: inline-block;
+    width: 100%;
+  }
+}
