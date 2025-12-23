@@ -2698,113 +2698,234 @@ h2 {
   font-weight: 600;
 }
 
-/* =========================
-   MOBILE HOTFIX (append only)
-   ========================= */
-@media (max-width: 640px){
+/* ===============================
+   FONT FIX — MOBILE + DESKTOP
+   =============================== */
 
-  /* evita scroll orizzontale e “tagli” strani */
-  html, body{
-    width: 100%;
+body {
+  font-family: 'Inter', sans-serif !important;
+}
+
+.anna-bottom,
+.anna-bottom strong {
+  font-family: 'Graduate', serif !important;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+/* ===============================
+   SPAZI — PRECISI (1 punto)
+   =============================== */
+
+h2 + .btn-secondary {
+  margin-top: 8px !important; /* 1 punto */
+}
+
+.sumup-btn {
+  margin-bottom: 8px !important; /* 1 punto sotto */
+}
+
+/* ===============================
+   FOOTER — DIGNITÀ
+   =============================== */
+
+.footer {
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding-bottom: 8px !important;
+  margin-bottom: 8px !important;
+  background: rgba(10, 8, 20, 0.75);
+  backdrop-filter: blur(18px);
+}
+
+/* ===============================
+   LEGAL LINKS — BIANCHI E VISIBILI
+   =============================== */
+
+.legal-links {
+  margin-top: 8px !important; /* 1 punto */
+  text-align: center;
+}
+
+.legal-links a {
+  color: #ffffff !important;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.legal-links span {
+  color: #ffffff;
+}
+
+/* ===============================
+   WHATSAPP — FLOATING VERO
+   =============================== */
+
+.wa-float {
+  position: fixed;
+  top: 90px;
+  right: 16px;
+  z-index: 9999;
+}
+
+/* ===============================
+   MOBILE — TESTI ADATTIVI
+   =============================== */
+
+@media (max-width: 768px) {
+
+  .hero-title,
+  h1, h2 {
+    word-break: break-word;
+    text-align: center;
+  }
+
+  p, span {
     max-width: 100%;
-    overflow-x: hidden;
+    word-wrap: break-word;
   }
 
-  /* --- WhatsApp FLOAT: deve stare SOPRA TUTTO --- */
-  .wa-float{
-    position: fixed !important;
-    right: 16px !important;
-    bottom: calc(16px + env(safe-area-inset-bottom)) !important;
-    z-index: 99999 !important;
-
-    /* dimensioni stabili */
-    width: 56px !important;
-    height: 56px !important;
-  }
-
-  /* se hai icona svg dentro */
-  .wa-float__icon{
-    width: 28px !important;
-    height: 28px !important;
-  }
-
-  /* IMPORTANTISSIMO:
-     se il footer o altri blocchi coprono, gli diamo spazio sotto */
-  .footer{
-    padding-bottom: 96px !important; /* spazio per bottone wa */
-  }
-
-  /* --- LEGAL LINKS: centrati e leggibili --- */
-  .legal-links{
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    padding: 14px 16px 28px !important;
-    text-align: center !important;
-  }
-  .legal-links a{
-    opacity: 0.9;
-    text-decoration: underline;
-  }
-
-  /* --- POPUP ISEE: centrato e “responsive” --- */
-  .isee-popup{
-    padding: 18px !important;
-  }
-  .isee-box{
-    width: min(92vw, 520px) !important;
-    max-width: 92vw !important;
-    margin: 0 auto !important;
-  }
-  .isee-box h3,
-  .isee-box p{
-    text-align: left; /* se lo vuoi centrato dimmelo e lo metto center */
-  }
-  .isee-box .close-popup{
-    display: inline-flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin-top: 14px !important;
-  }
-
-  /* --- Immagini HERO: mai uscire dal viewport --- */
-  img, .annahelp-hero-img{
-    max-width: 100% !important;
-    height: auto !important;
+  .annahelp-desc-box,
+  .annahelp-card,
+  .footer {
+    margin-left: 12px;
+    margin-right: 12px;
   }
 }
-/* ============================
-   RIPRISTINO GLASS – ANNA HELP (MOBILE)
-   ============================ */
-@media (max-width: 640px){
 
-  .annahelp-desc,
-  .anna-help-desc,
-  .annahelp-box{
-    background: rgba(10, 20, 40, 0.55) !important;
-    backdrop-filter: blur(14px) saturate(140%) !important;
-    -webkit-backdrop-filter: blur(14px) saturate(140%) !important;
-    border-radius: 18px;
-    padding: 18px 16px;
+/* =========================================================
+   PATCH RIPRISTINO (NON TOCCA I TUOI NEON)
+   - rimette vetro, spazi 1 punto, link bianchi
+   - sistema Anna Help e footer
+   ========================================================= */
+
+/* 0) STOP "all: unset" che ti distrugge la grafica */
+.page-home .annahelp-card,
+.page-home .annahelp-prompt,
+.page-home .annahelp-line,
+.page-home .annahelp-glass,
+.page-home .annahelp-desc-box{
+  all: revert; /* NON unset */
+}
+
+/* 1) LEGAL LINKS (Privacy/Cookie) — bianchi + 1 punto di spazio sotto */
+.legal-links{
+  margin-top: 8px !important;     /* 1 punto */
+  margin-bottom: 8px !important;  /* 1 punto sotto (quello che chiedevi) */
+  text-align: center;
+}
+.legal-links a,
+.legal-links span{
+  color: #fff !important;
+  opacity: .92;
+}
+.legal-links a{
+  text-decoration: underline;
+}
+
+/* 2) FOOTER — 1 punto di stacco dal fondo + niente "marrone" */
+.footer{
+  /* ripristina look vetro già tuo */
+  background:
+    radial-gradient(circle at 0% 0%, rgba(0, 255, 200, 0.25), transparent 50%),
+    radial-gradient(circle at 100% 100%, rgba(255, 0, 200, 0.22), transparent 55%),
+    rgba(5, 5, 25, 0.88) !important;
+
+  margin-bottom: 8px !important;  /* 1 punto dal fondo pagina */
+  padding-bottom: 22px !important;
+}
+
+/* 3) SUMUP — 1 punto sotto il tasto */
+.sumup-btn{
+  margin-bottom: 8px !important;  /* 1 punto sotto tasto */
+}
+
+/* 4) ANNA HELP — spazio tra titolo e bottone rosa (1 punto) */
+.annahelp-page #annahelp-section h2{
+  margin-bottom: 8px !important; /* 1 punto sotto titolo */
+}
+.annahelp-page #btn-annahelp{
+  margin-top: 8px !important;    /* 1 punto sopra bottone */
+}
+
+/* 5) BOX DESCRIZIONE (vetro) — rimetti frame/glass */
+.annahelp-desc-box{
+  max-width: 820px;
+  width: min(820px, 92%);
+  margin: 16px auto 18px !important;
+  padding: 18px 22px !important;
+  border-radius: 14px;
+
+  background:
+    radial-gradient(circle at 0% 0%, rgba(0,255,200,.25), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(255,0,200,.18), transparent 55%),
+    rgba(5,5,25,.78) !important;
+
+  box-shadow:
+    0 0 18px rgba(0,255,200,.45),
+    0 0 34px rgba(255,0,200,.28) !important;
+}
+
+/* 6) ANNA HELP — evita "spalzata": reset margini aggressivi SOLO lì */
+.annahelp-page .section.anna-section{
+  padding-top: 20px !important;
+  padding-bottom: 32px !important;
+}
+.annahelp-page .annahelp-hero-image{
+  margin: 12px auto 14px !important;
+}
+
+/* 7) WHATSAPP FLOAT — veramente flottante e NON sporcizia in basso */
+.wa-float{
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  top: auto !important;
+  z-index: 9999;
+}
+
+/* 8) COOKIE BANNER — diventa un box vero (non testo-sporco) */
+.cookie-banner{
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 96px !important;
+  top: auto !important;
+
+  background: rgba(5, 5, 25, 0.92) !important;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 14px;
+
+  box-shadow:
+    0 0 22px rgba(0,255,255,0.22),
+    0 0 40px rgba(255,0,200,0.12);
+}
+.cookie-banner a{
+  color: #fff !important;        /* se vuoi cyan dimmelo, per ora bianco pulito */
+  text-decoration: underline;
+}
+
+/* 9) MOBILE — niente sbordi / corrispondenza pulita */
+@media (max-width: 768px){
+  .annahelp-desc-box,
+  .annahelp-card,
+  .footer{
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+    width: auto !important;
   }
-
-}/* ============================
-   FIX SPAZIO INUTILE FOOTER (MOBILE)
-   ============================ */
-@media (max-width: 640px){
-
-  footer,
-  .footer,
-  .site-footer {
-    padding-bottom: 12px !important;
-    margin-bottom: 0 !important;
-    min-height: unset !important;
+}
+/* FIX COLORE MOBILE – mantiene la tua grafica */
+@media (max-width: 768px) {
+  .page-bg {
+    position: absolute !important;
+    will-change: transform;
+    transform: translateZ(0);
   }
-
-  footer *:last-child,
-  .footer *:last-child {
-    margin-bottom: 0 !important;
+}
+@media (max-width: 768px) {
+  .page-bg {
+    position: absolute !important;
+    background-attachment: scroll !important;
+    filter: saturate(1.05) contrast(1.03);
   }
-
 }
