@@ -363,7 +363,7 @@ body{
 
 .steps-list li{
   position:relative;
-  margin:10px 0;
+  margin:20px 0;
   padding-left:170px;
   line-height:1.5;
   color:#e9f9ff;
@@ -383,7 +383,7 @@ body{
   font-weight:700;
   letter-spacing:.5px;
 
-  max-width:150px;
+  max-width:168px;
   overflow:hidden;
   text-overflow:ellipsis;
 }
@@ -457,7 +457,7 @@ body{
   justify-content:center;
   align-items:center;
   width:100%;
-  margin:8px 0 18px;
+  margin:0px 0 10px;
   padding:0;
   overflow-x:hidden;
   position:relative;
@@ -546,7 +546,7 @@ body{
 }
 
 /* descrizione (box) */
-.annahelp-desc-box{ text-align:left; }
+.annahelp-desc-box{ text-align:center; }
 .annahelp-desc{
   font-size:1.05rem;
   line-height:1.65;
@@ -594,7 +594,8 @@ body{
 }
 
 .annahelp-prompt{
-  font-weight:800;
+  font-weight:900 !important; /*prima era 800*/
+  letter-spacing: .6px;
   font-size:.9rem;
   color:var(--cyan);
   white-space:nowrap;
@@ -804,8 +805,8 @@ body{
 
 .wa-float{
   position:fixed;
-  right:18px;
-  bottom:18px;
+  right:auto;
+  bottom:120px;
   width:62px;
   height:62px;
   border-radius:999px;
@@ -907,8 +908,8 @@ body.show-cookie #cookie-banner{ display:block; }
     position:static;
   }
   .page-home .logo-circle{
-    width:120px;
-    height:120px;
+    width:140px;
+    height:140px;
     margin-top:8px;
   }
   .page-home .hero-title{
@@ -925,8 +926,9 @@ body.show-cookie #cookie-banner{ display:block; }
 
   /* WA un filo più grande */
   .wa-float{
-    right:14px;
-    bottom:14px;
+    right: auto;
+    left:14px; /* a sinistra */
+    bottom:42%; /*altezza pillole*/
     width:66px;
     height:66px;
   }
@@ -952,3 +954,244 @@ body.show-cookie #cookie-banner{ display:block; }
   .annahelp-hero-img{ max-width:88vw; }
 }
 
+/* =========================================================
+   ANNA BRAND HOTFIX — minimal overrides (no redesign)
+   Fixes:
+   - Anna, HELP! button alignment (top-right) + spacing from logo
+   - WhatsApp floating button: higher + softer on content
+   - "Come funziona" (terminal steps) mobile layout: no skinny column
+   - Anna-HELP bullet cards: prompt on its own line, check + text aligned left
+   - Restore neon side trails around Anna, HELP! hero badge
+   - Legal links centered + bold
+   ========================================================= */
+
+/* --- 1) HERO: keep Anna, HELP! button top-right on mobile --- */
+.hero {
+  position: relative;
+}
+
+.hero .annahelp-link {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  left: auto;
+  transform: none;
+  margin: 0;
+  z-index: 30;
+}
+
+@media (max-width: 520px) {
+  .hero {
+    /* gives breathing room so the badge/logo never sits under the button */
+    padding-top: 64px;
+  }
+  .hero .annahelp-link {
+    top: 14px;
+    right: 14px;
+  }
+}
+
+/* --- 2) WhatsApp floating button: not glued to bottom/footer --- */
+a.wa-float {
+  right: 18px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 96px);
+  opacity: 0.92;
+  backdrop-filter: blur(10px);
+}
+
+@media (min-width: 900px) {
+  a.wa-float {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 28px);
+  }
+}
+
+/* --- 3) COME FUNZIONA: terminal steps list should NOT become a thin right column on mobile --- */
+
+@media (max-width: 620px) {
+
+  .terminal-box{
+    padding: 20px 16px;
+  }
+
+  .steps-list li{
+    padding-left: 110px;   /* 👈 PRIMA ERA 170 COME DESKTOP */
+    margin-bottom: 26px;   /* 👈 PIÙ ARIA */
+    line-height: 1.65;
+    font-size: 0.95rem;
+  }
+
+  .steps-list li::before{
+    left: 0;
+    top: 0;
+    width:100px; /*limita il prompt */
+    margin right: 6px;
+    position: absolute;    /* 👈 COME DESKTOP */
+    content:"# spo:// › ";
+    color: var(--cyan);
+    font-weight: 700;
+  }
+
+}
+
+/* --- 4) ANNA-HELP: bullet cards layout (prompt on top, then check + text) --- */
+.annahelp-page .annahelp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.annahelp-page .annahelp-prompt {
+  display: block;
+  white-space: normal;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-align: left;
+}
+
+.annahelp-page .annahelp-line {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.annahelp-page .annahelp-check {
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.annahelp-page .annahelp-text {
+  flex: 1 1 auto;
+  text-align: left;
+}
+
+/* --- 5) ANNA-HELP: neon side trails around the hero badge (non-invasive) --- */
+.annahelp-page .annahelp-hero-image {
+  position: relative;
+  isolation: isolate;
+}
+
+.annahelp-page .annahelp-hero-image::before,
+.annahelp-page .annahelp-hero-image::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 240px;
+  height: 520px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.85;
+  filter: blur(16px);
+}
+
+.annahelp-page .annahelp-hero-image::before {
+  left: -170px;
+  background:
+    radial-gradient(circle at 70% 30%, rgba(0,255,200,0.55), transparent 65%),
+    linear-gradient(90deg, rgba(0,255,200,0.00), rgba(0,255,200,0.35), rgba(255,0,180,0.00));
+}
+
+.annahelp-page .annahelp-hero-image::after {
+  right: -170px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,0,180,0.55), transparent 65%),
+    linear-gradient(90deg, rgba(255,0,180,0.00), rgba(255,0,180,0.35), rgba(0,255,200,0.00));
+}
+
+@media (max-width: 520px) {
+  .annahelp-page .annahelp-hero-image::before,
+  .annahelp-page .annahelp-hero-image::after {
+    width: 170px;
+    height: 360px;
+    opacity: 0.70;
+    filter: blur(14px);
+  }
+  .annahelp-page .annahelp-hero-image::before { left: -120px; }
+  .annahelp-page .annahelp-hero-image::after { right: -120px; }
+}
+
+/* --- 6) Legal links under footer: centered + bold --- */
+.legal-links {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 14px auto 0;
+  padding: 0 14px 14px;
+  text-align: center;
+  font-weight: 800;
+}
+
+.legal-links a {
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* --- 7) Inline WhatsApp button (Anna-HELP page, under badge) --- */
+.wa-inline-wrap{
+  display:flex;
+  justify-content:flex-end;
+  margin: 10px 0 16px;
+}
+
+.wa-inline{
+  width:64px;
+  height:64px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  color:#001015;
+  background: rgba(0,255,200,0.28);
+  border: 1px solid rgba(0,255,200,0.45);
+  box-shadow: 0 0 28px rgba(0,255,200,0.35);
+}
+
+.wa-inline:hover{
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px){
+  .annahelp-page .wa-float{
+    left: 14px;
+    right: auto;
+    bottom: calc(50vh - 40px);
+    width: 66px;
+    height: 66px;
+  }
+}
+@media (max-width: 620px){
+  .annahelp-line{
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+@media (max-width: 768px){
+  .annahelp-hero-image{
+    margin-bottom: 4px;
+  }
+}
+@media (max-width: 768px){
+  .page-home .wa-float{
+    left: 14px;
+    right: auto;
+    bottom: calc(50vh - 40px); /* 👈 sopra le pillole, MA NON ATTACCATO */
+    width: 66px;
+    height: 66px;
+  }
+}
+.annahelp-plane{
+  font-weight: 900;
+}
+
+@media (max-width: 768px){
+  .annahelp-hero-image{
+    margin-bottom: 0;
+  }
+  .section.anna-section{
+    padding-top: 8px;
+  }
+}
