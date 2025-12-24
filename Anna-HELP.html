@@ -22,82 +22,85 @@
            class="annahelp-hero-img">
     </section>
 
-<div class="wa-inline-wrap">
-  <a class="wa-inline" href="https://wa.me/3907611521735" target="_blank">
-    <img src="icons8-whatsapp-40.png" alt="WhatsApp">
-  </a>
-</div>
 
     <!-- CONTENUTO -->
 <section class="section anna-section" id="annahelp-section">
 
-      <h2>Anna, HELP! ✈️ è un servizio d’urgenza.</h2>
-      <button class="btn-secondary annahelp-toggle" id="btn-annahelp">
-  DELEGA I TUOI PROBLEMI!
-</button>
+<h2 class="annahelp-title">
+  <span class="t1">Anna, HELP! è un servizio d’urgenza.</span>
+</h2>
 
-
+<!-- BOX VETRO: 2 righe separate dal cancelletto -->
 <div class="annahelp-glass annahelp-desc-box">
-
   <p class="annahelp-desc">
     Con <strong>Anna, HELP!✈️</strong> puoi delegare ciò che non vuoi,
     o non puoi, fare di persona: file, documenti, sportelli difficili.
   </p>
 
   <div class="annahelp-sep">#</div>
-  
+
   <p class="annahelp-desc">
     Quando una pratica richiede tempo, presenza fisica o passaggi con
     Uffici pubblici, puoi affidarla a me.
   </p>
-
-</div>
-<div class="annahelp-glass annahelp-card">
-  <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <div class="annahelp-line">
-    <span class="annahelp-check">✔</span>
-    <span>Presenza fisica presso Uffici pubblici al posto tuo;</span>
-  </div>
 </div>
 
-<div class="annahelp-glass annahelp-card">
-  <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <div class="annahelp-line">
-    <span class="annahelp-check">✔</span>
-    <span>Intermediazione diretta con gli Uffici;</span>
-  </div>
-</div>
+<!-- BOTTONE (finto) che scrolla all'elenco -->
+<button class="btn-secondary annahelp-toggle" id="btn-annahelp" type="button">
+  DELEGA I TUOI PROBLEMI!
+</button>
 
-<div class="annahelp-glass annahelp-card">
-  <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <div class="annahelp-line">
-    <span class="annahelp-check">✔</span>
-    <span>Accesso agli atti e pratiche Comunali;</span>
-  </div>
-</div>
+<!-- ELENCO PUNTATO: WRAPPER per lo scroll -->
+<div id="annahelp-list">
 
-<div class="annahelp-glass annahelp-card">
-  <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <div class="annahelp-line">
-    <span class="annahelp-check">✔</span>
-    <span>Accompagnamento o rappresentanza in Ufficio Immigrazione;</span>
+  <div class="annahelp-glass annahelp-card">
+    <span class="annahelp-prompt"># Anna → HELP!✈️</span>
+    <div class="annahelp-line">
+      <span class="annahelp-check">✔</span>
+      <span>Presenza fisica presso Uffici pubblici al posto tuo;</span>
+    </div>
   </div>
-</div>
 
-<div class="annahelp-glass annahelp-card">
-  <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <div class="annahelp-line">
-    <span class="annahelp-check">✔</span>
-    <span>Raccolta documenti;</span>
+  <div class="annahelp-glass annahelp-card">
+    <span class="annahelp-prompt"># Anna → HELP!✈️</span>
+    <div class="annahelp-line">
+      <span class="annahelp-check">✔</span>
+      <span>Intermediazione diretta con gli Uffici;</span>
+    </div>
   </div>
-</div>
 
-<div class="annahelp-glass annahelp-card">
-  <span class="annahelp-prompt"># Anna → HELP!✈️</span>
-  <div class="annahelp-line">
-    <span class="annahelp-check">✔</span>
-    <span>Coordinamento documentazione per pratiche notarili.</span>
+  <div class="annahelp-glass annahelp-card">
+    <span class="annahelp-prompt"># Anna → HELP!✈️</span>
+    <div class="annahelp-line">
+      <span class="annahelp-check">✔</span>
+      <span>Accesso agli atti e pratiche Comunali;</span>
+    </div>
   </div>
+
+  <div class="annahelp-glass annahelp-card">
+    <span class="annahelp-prompt"># Anna → HELP!✈️</span>
+    <div class="annahelp-line">
+      <span class="annahelp-check">✔</span>
+      <span>Accompagnamento o rappresentanza in Ufficio Immigrazione;</span>
+    </div>
+  </div>
+
+  <div class="annahelp-glass annahelp-card">
+    <span class="annahelp-prompt"># Anna → HELP!✈️</span>
+    <div class="annahelp-line">
+      <span class="annahelp-check">✔</span>
+      <span>Raccolta documenti;</span>
+    </div>
+  </div>
+
+  <div class="annahelp-glass annahelp-card">
+    <span class="annahelp-prompt"># Anna → HELP!✈️</span>
+    <div class="annahelp-line">
+      <span class="annahelp-check">✔</span>
+      <span>Coordinamento documentazione per pratiche notarili.</span>
+    </div>
+  </div>
+
 </div>
 
 
@@ -105,6 +108,9 @@
       <div class="divider"></div>
 
     </section>
+
+<!-- WhatsApp floating button (no script esterni) -->
+
 
     <!-- HERO SITO (FIRMA) SOPRA IL FOOTER -->
     <header class="hero">
@@ -156,15 +162,12 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const btnAnnaHelp = document.getElementById('btn-annahelp');
-  const annaHelpSection = document.getElementById('annahelp-section');
+  const btn = document.getElementById('btn-annahelp');
+  const list = document.getElementById('annahelp-list');
 
-  if (btnAnnaHelp && annaHelpSection) {
-    btnAnnaHelp.addEventListener('click', () => {
-      annaHelpSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+  if (btn && list) {
+    btn.addEventListener('click', () => {
+      list.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   }
 });

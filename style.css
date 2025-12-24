@@ -1195,3 +1195,135 @@ a.wa-float {
     padding-top: 8px;
   }
 }
+
+/* Anna Help — intro: mobile ok, desktop 1 rigo */
+.ah-one-line{
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* DESKTOP: tutto su un rigo */
+@media (min-width: 900px){
+  .ah-one-line{
+    white-space: nowrap;               /* niente a capo */
+    font-size: clamp(14px, 1.25vw, 18px); /* si adatta senza “esplodere” */
+  }
+}
+
+/* === Anna HELP — prompt e testo su un'unica riga SOLO su desktop === */
+@media (min-width: 900px) {
+  .annahelp-page .annahelp-card {
+    flex-direction: row;           /* da colonna → riga */
+    align-items: center;
+    gap: 10px;
+  }
+
+  .annahelp-page .annahelp-prompt {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 12px;            /* piccolo spazio tra prompt e testo */
+    white-space: nowrap;
+  }
+
+  .annahelp-page .annahelp-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+/* --- Anna Help: riduci il vuoto badge→titolo SOLO su desktop --- */
+@media (min-width: 900px){
+  /* stringe lo spazio sotto al badge (AHH.png ha molto “vuoto” interno) */
+  .annahelp-page .annahelp-hero-image{
+    margin-bottom: clamp(-220px, -16vh, -140px);
+  }
+
+  /* micro-ritocco: sposta il badge un filo su (solo desktop) */
+  .annahelp-page .annahelp-hero-img{
+    transform: translateY(-18px);
+  }
+
+  /* evita che il titolo riaggiunga aria inutile */
+  /* Anna Help: un filo di spazio tra H2 e bottone */
+  .annahelp-page .anna-section h2{ 
+    margin-top: 12px; /* aumenta/diminuisci qui */
+  }
+
+.annahelp-page .annahelp-toggle{
+  margin-top: 12px;    /* aumenta/diminuisci qui */
+}
+
+/* Anna Help: spaziatura pulita tra box, bottone e lista */
+.annahelp-page .annahelp-desc-box { margin-top: 56px; }
+.annahelp-page .annahelp-toggle { margin: 18px auto 22px; }
+#annahelp-list { scroll-margin-top: 18px; } /* quando scrolli, non si appiccica sopra */
+
+.annahelp-title .t1,
+.annahelp-title .t2{
+  display:block;
+}
+
+.annahelp-title .t2{
+  margin-top: 6px;      /* micro-spazio tra le due righe */
+  letter-spacing: .08em; /* un filo “manifesto” */
+  opacity: .95;
+}
+
+/* ===== Anna Help: titolo su 2 righe (forzato) ===== */
+.annahelp-page .annahelp-title{
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 10px !important;              /* spazio tra riga 1 e riga 2 */
+  margin: 18px 0 18px !important;    /* spazio sotto al titolo */
+}
+
+.annahelp-page .annahelp-title .t1,
+.annahelp-page .annahelp-title .t2{
+  display: block !important;
+  width: 100%;
+}
+
+/* micro-stile alla seconda riga (opzionale, ma carino) */
+.annahelp-page .annahelp-title .t2{
+  letter-spacing: .10em;
+  opacity: .96;
+ }
+}
+/* ====== ANNAHELP: desktop micro-fix (pulito) ====== */
+
+/* 1) Desktop: la prima card NON deve intravedersi sotto al bottone
+   (spinge giù la lista) */
+/* Surface 7 Pro / schermi 3:2 “desktop bassi”: il bottone deve chiudere la prima schermata */
+@media (min-width: 1100px) and (max-height: 950px){
+  #annahelp-list{
+    padding-top: 96px;   /* se ancora sbuca: 110px | se è troppo: 80px */
+  }
+}
+/* ✅ HOME: WhatsApp in alto a sinistra, stessa altezza del pulsante Anna Help (mobile) */
+@media (max-width: 768px){
+  .page-home .wa-float{
+    left: 14px;
+    right: auto;
+
+    top: calc(env(safe-area-inset-top, 0px) + 14px);
+    bottom: auto;               /* IMPORTANTISSIMO: annulla le regole “bottom” vecchie */
+
+    width: 56px;
+    height: 56px;
+
+    opacity: .92;
+  }
+
+  .page-home .wa-float__icon{
+    width: 30px;
+    height: 30px;
+  }
+
+  /* opzionale: meno “allarme”, più pulito */
+  .page-home .wa-float__pulse{ display:none; }
+}
+
+/* ✅ AnnaHelp: se lì non lo vuoi */
+.annahelp-page .wa-float{ display:none !important; }
