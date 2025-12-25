@@ -352,7 +352,9 @@ body{
 
   text-align:left;
   font-family:"JetBrains Mono","Fira Code", monospace;
-  font-size:.95rem;
+
+  font-size:1.08rem;   /* ⬅️ PIÙ GRANDE */
+  line-height:1.65;    /* ⬅️ PIÙ RESPIRO */
 }
 
 .steps-list{
@@ -391,17 +393,21 @@ body{
 /* -------------------- PILL GRID (HOME) -------------------- */
 
 .pill-grid{
-  margin:26px auto 0;
-  max-width:760px;
+  margin: 42px auto 0;
+  max-width: 920px;
+  padding-top: 18px;
 
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  gap: 18px 22px;
 }
+
 
 .pill{
   position:relative;
+  isolation: isolate;
   padding:14px 28px;
   border-radius:999px;
 
@@ -424,6 +430,8 @@ body{
 
   transition: transform .15s ease, box-shadow .15s ease;
 }
+
+
 .pill:hover{
   transform:translateY(-2px) scale(1.04);
   box-shadow:
@@ -434,9 +442,96 @@ body{
 }
 
 .pill-wide{
-  min-width:320px;
+  padding-left:42px;
+  padding-right:42px;
   text-align:center;
 }
+/* =========================================================
+   PILL COLORS — GERARCHIA VISIVA GARUDA
+   (NO CYAN · NO GIALLO · NO ROSSO · NO CTA COLOR)
+   ========================================================= */
+
+
+/* =========================================================
+   1️⃣ PILL FISCALI — PROTAGONISTE ASSOLUTE
+   Colore: VERDE NEON PROFONDO (potere, autorità)
+   ========================================================= */
+
+.pill.pill-fiscale{
+  background: linear-gradient(
+    135deg,
+    #00ff9f,
+    #00cc7a
+  );
+  color:#021812;
+
+  box-shadow:
+    inset 0 0 22px rgba(255,255,255,.55),
+    inset 0 0 38px rgba(0,255,160,.75),
+    0 0 44px rgba(0,255,160,1),
+    0 0 96px rgba(0,255,160,.85);
+}
+
+
+/* =========================================================
+   1️⃣ BIS — RISCOSSIONE AdE
+   Stesso fisco, PIÙ PESO (autorità)
+   ========================================================= */
+
+.pill.pill-riscossione{
+  background: linear-gradient(
+    135deg,
+    #00ff9f,
+    #00b86a
+  );
+
+  box-shadow:
+    inset 0 0 26px rgba(255,255,255,.6),
+    inset 0 0 44px rgba(0,255,150,.85),
+    0 0 56px rgba(0,255,150,1),
+    0 0 120px rgba(0,255,150,.9);
+}
+
+
+/* =========================================================
+   2️⃣ PILL PREVIDENZA / PATRONATO
+   Colore: LILLA / VIOLA NEON (bonus, diritti)
+   ========================================================= */
+
+.pill.pill-previdenza{
+  background: linear-gradient(
+    135deg,
+    #c77dff,
+    #9b5de5
+  );
+  color:#140a24;
+
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,.45),
+    0 0 28px rgba(180,120,255,.85),
+    0 0 56px rgba(155,90,230,.6);
+}
+
+
+/* =========================================================
+   3️⃣ PILL SERVIZI
+   Colore: ROSA / FUCSIA NEON (allegro, digitale)
+   ========================================================= */
+
+.pill.pill-servizi{
+  background: linear-gradient(
+    135deg,
+    #ff5fd2,
+    #ff3fa4
+  );
+  color:#2a0018;
+
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,.45),
+    0 0 26px rgba(255,90,200,.85),
+    0 0 52px rgba(255,60,160,.6);
+}
+
 
 /* -------------------- ANNA HELP (pagina dedicata) -------------------- */
 
@@ -548,7 +643,7 @@ body{
 /* descrizione (box) */
 .annahelp-desc-box{ text-align:center; }
 .annahelp-desc{
-  font-size:1.05rem;
+  font-size:1.08rem;
   line-height:1.65;
   margin:0 0 10px;
   opacity:.96;
@@ -606,9 +701,9 @@ body{
   display:flex;
   align-items:center;
   gap:8px;
-  font-size:1rem;
+  font-size:1.1rem;
   font-weight:600;
-  line-height:1.45;
+  line-height:1.65;
 }
 
 .annahelp-check{
@@ -852,104 +947,281 @@ body{
   100%{ transform:scale(1.18); opacity:0; }
 }
 
-/* -------------------- COOKIE BANNER (JS-driven) -------------------- */
+/* ================= COOKIE BANNER (fish / Garuda) ================= */
 
 /* default: nascosto */
 #cookie-banner{ display:none; }
 
 /* visibile SOLO quando JS mette body.show-cookie */
-body.show-cookie #cookie-banner{ display:block; }
+body.show-cookie #cookie-banner{ display:flex; }
 
+/* ---------- CONTAINER ---------- */
 .cookie-banner{
-  position:fixed;
-  left:50%;
-  transform:translateX(-50%);
-  bottom: calc(96px + env(safe-area-inset-bottom)); /* sopra WA */
-  width:calc(100% - 32px);
-  max-width:520px;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(96px + env(safe-area-inset-bottom));
+  width: calc(100% - 24px);
+  max-width: 760px;
 
-  padding:14px 18px;
-  border-radius:14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
 
-  background:rgba(5,5,25,.92);
-  color:#fff;
-  font-size:.9rem;
+  padding: 14px 16px;
+  border-radius: 18px;
 
-  z-index:9998;
+  background: rgba(5, 0, 16, 0.52);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
-  border:1px solid rgba(255,255,255,.14);
+  border: 1px solid rgba(0, 255, 200, 0.28);
+  box-shadow:
+    0 0 0 1px rgba(255, 0, 180, 0.15) inset,
+    0 18px 48px rgba(0, 0, 0, 0.55),
+    0 0 26px rgba(0, 255, 200, 0.18),
+    0 0 42px rgba(255, 0, 180, 0.12);
+
+  color: rgba(253, 253, 255, 0.95);
+  z-index: 9998;
+
+  /* animazioni */
+  transition: opacity .18s ease, transform .18s ease, filter .18s ease;
+}
+
+/* chiusura */
+.cookie-banner.is-hiding{
+  opacity: 0;
+  transform: translateX(-50%) translateY(12px) scale(.985);
+  filter: blur(1px);
+}
+
+/* ---------- TESTO ---------- */
+.cookie-line{
+  margin: 0;
+  line-height: 1.35;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.92rem;
+
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* prompt neon */
+.cookie-prompt{
+  color: #7CFFEE;
+  font-weight: 900;
+  letter-spacing: .02em;
+  white-space: nowrap;
+
+  text-shadow:
+    0 0 6px rgba(0,255,200,.95),
+    0 0 14px rgba(0,255,200,.70),
+    0 0 30px rgba(0,255,200,.45),
+    0 0 60px rgba(0,255,200,.25);
+}
+
+/* freccia */
+.cookie-arrow{
+  color: #F8F2FF;
+  font-weight: 900;
+  text-shadow:
+    0 0 6px rgba(255,255,255,.55),
+    0 0 16px rgba(255,0,180,.35),
+    0 0 22px rgba(0,255,200,.25);
+}
+
+/* messaggio */
+.cookie-msg{
+  color: rgba(253,253,255,.96);
+  text-shadow: 0 0 10px rgba(0,0,0,.35);
+}
+
+/* link */
+.cookie-link{
+  color: #00FFC8;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+
+  text-shadow:
+    0 0 10px rgba(0,255,200,.75),
+    0 0 24px rgba(0,255,200,.35);
+}
+.cookie-link:hover{ filter: brightness(1.15); }
+
+/* ---------- BOTTONE OK ---------- */
+.cookie-btn{
+  flex: 0 0 auto;
+  border: 0;
+  cursor: pointer;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 800;
+  letter-spacing: .08em;
+
+  color: #070014;
+  background: linear-gradient(90deg, rgba(255,0,180,.92), rgba(0,255,200,.85));
 
   box-shadow:
-    0 0 20px rgba(0,255,255,.25),
-    0 0 40px rgba(255,0,200,.12);
-}
-.cookie-banner a{ color:var(--cyan); text-decoration:underline; }
-.cookie-banner button{
-  margin-left:12px;
-  padding:6px 14px;
-  border-radius:999px;
-  border:none;
-  font-weight:700;
-  cursor:pointer;
+    0 0 0 1px rgba(255,255,255,.14) inset,
+    0 0 26px rgba(255,0,180,.42),
+    0 0 34px rgba(0,255,200,.30),
+    0 14px 34px rgba(0,0,0,.45);
+
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
 }
 
-/* -------------------- RESPONSIVE -------------------- */
+.cookie-btn:hover{
+  transform: translateY(-2px) scale(1.03);
+  filter: brightness(1.15);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.18) inset,
+    0 0 34px rgba(255,0,180,.55),
+    0 0 44px rgba(0,255,200,.40),
+    0 18px 42px rgba(0,0,0,.50);
+}
 
+.cookie-btn:active{
+  transform: translateY(0) scale(.97);
+}
+
+/* =========================================================
+   MOBILE — COOKIE BANNER (fino a 560px)
+   Scopo: rendere il banner cookie "a colonna" su telefoni piccoli,
+   così non si schiaccia tutto in orizzontale.
+   ========================================================= */
+@media (max-width: 560px){
+
+  /* Banner cookie: da riga → colonna (testo sopra, pulsante sotto) */
+  .cookie-banner{
+    flex-direction: column;  /* impila gli elementi verticalmente */
+    align-items: stretch;    /* allarga gli elementi a tutta la larghezza */
+    text-align: left;        /* testo leggibile (non centrato) */
+  }
+
+  /* Pulsante cookie: piena larghezza per essere cliccabile al volo */
+  .cookie-btn{ width: 100%; }
+}
+
+
+/* =========================================================
+   RESPONSIVE — DESKTOP “LARGO” (da 820px in su)
+   Scopo: aumentare un filo la gerarchia tipografica su schermi grandi.
+   Qui NON c’è nulla di mobile.
+   ========================================================= */
 @media (min-width: 820px){
+
+  /* Titolo principale (Sportello Pratiche Online): più grande su desktop */
   .hero-title{ font-size:3rem; }
+
+  /* Sottotitolo (Pratiche fiscali · Servizi · ...): un po’ più leggibile */
   .hero-subtitle{ font-size:1.15rem; }
 }
 
-/* HOME mobile: l’Anna HELP resta “in flusso”, niente overlay */
+
+/* =========================================================
+   HOME — MOBILE/TABLET (fino a 768px)
+   Scopo: sistemare layout Home su schermi più stretti.
+   Qui tocchi:
+   - pulsante "Anna, HELP!" in home
+   - dimensioni/logo e titoli hero
+   - posizione/altezza cookie banner (sopra i bottoni flottanti)
+   - posizione/size WhatsApp float
+   - layout card AnnaHelp (prompt sopra, testo sotto)
+   ========================================================= */
 @media (max-width: 768px){
+
+  /* -------------------------------------------------------
+     HOME: link "Anna, HELP!" — deve restare in flusso (non overlay)
+     Questo evita che si sovrapponga ai contenuti su mobile.
+     ------------------------------------------------------- */
   .page-home .annahelp-link{
-    align-self:center;
-    margin:0 0 16px 0;
-    position:static;
+    align-self:center;  /* centra il bottone nel flusso */
+    margin:0 0 16px 0;  /* spazio sotto (stacca dai contenuti successivi) */
+    position:static;    /* IMPORTANTISSIMO: niente posizionamento assoluto */
   }
+
+  /* -------------------------------------------------------
+     HOME: logo cerchio — più piccolo su schermi stretti
+     ------------------------------------------------------- */
   .page-home .logo-circle{
     width:140px;
     height:140px;
     margin-top:8px;
   }
+
+  /* -------------------------------------------------------
+     HOME: titolo hero — riduce dimensione e compatta l’interlinea
+     ------------------------------------------------------- */
   .page-home .hero-title{
-    margin-top:14px;
-    font-size:2.2rem;
-    line-height:1.1;
+    margin-top:14px;    /* leggero distacco dal logo */
+    font-size:2.2rem;   /* più piccolo su mobile */
+    line-height:1.1;    /* più compatto (evita “bucare” lo schermo) */
   }
 
-  /* banner cookie un filo più alto su schermi piccoli */
+  /* -------------------------------------------------------
+     COOKIE BANNER: più “alto” (cioè più su) su schermi piccoli
+     Scopo: NON farsi coprire dai bottoni flottanti (WA ecc).
+     - env(safe-area-inset-bottom) = iPhone / notch / gesture bar
+     ------------------------------------------------------- */
   .cookie-banner{
     bottom: calc(110px + env(safe-area-inset-bottom));
-    font-size:.85rem;
+    font-size:.85rem;   /* testo un filo più piccolo su mobile */
   }
 
-  /* WA un filo più grande */
+  /* -------------------------------------------------------
+     WhatsApp floating button: più grande e spostato a sinistra
+     Attenzione: bottom:42% lo alza “a metà schermo” circa.
+     Nota: in questo punto può “interferire” visivamente con le pillole
+     (se le pillole occupano la stessa fascia verticale).
+     ------------------------------------------------------- */
   .wa-float{
-    right: auto;
-    left:14px; /* a sinistra */
-    bottom:42%; /*altezza pillole*/
+    right: auto;   /* annulla eventuale ancoraggio a destra */
+    left:14px;     /* lo mette a sinistra */
+    bottom:42%;    /* lo alza in altezza (zona pillole) */
     width:66px;
     height:66px;
   }
   .wa-float__icon{ width:36px; height:36px; }
 
-  /* card AnnaHelp: prompt sopra */
+  /* -------------------------------------------------------
+     ANNA HELP: card della lista (non la home hero)
+     Scopo: su mobile la card non deve essere “a griglia” stretta:
+     il prompt va sopra, testo sotto.
+     ------------------------------------------------------- */
   .annahelp-card{
-    display:block;
-    padding:14px 16px;
+    display:block;       /* toglie la grid/colonne: tutto in verticale */
+    padding:14px 16px;   /* padding più “mobile friendly” */
   }
+
+  /* Prompt (# Anna → HELP!✈️): deve andare a capo se serve */
   .annahelp-prompt{
-    display:block;
-    margin-bottom:6px;
-    white-space:normal;
-    word-break:break-word;
+    display:block;        /* va su una riga sua */
+    margin-bottom:6px;    /* stacca dal testo */
+    white-space:normal;   /* permette wrap (no riga unica) */
+    word-break:break-word;/* rompe parole lunghe se serve */
   }
+
+  /* Riga contenuto: allinea bene check + testo anche quando va a capo */
   .annahelp-line{
-    align-items:flex-start;
+    align-items:flex-start; /* check resta in alto rispetto a testo multi-linea */
   }
 }
 
+
+/* =========================================================
+   ANNA HELP — HERO IMAGE (fino a 600px)
+   Scopo: l’immagine hero non deve “sforare” su schermi piccoli.
+   Usa viewport width: max 88% della larghezza schermo.
+   ========================================================= */
 @media (max-width: 600px){
   .annahelp-hero-img{ max-width:88vw; }
 }
@@ -1327,3 +1599,170 @@ a.wa-float {
 
 /* ✅ AnnaHelp: se lì non lo vuoi */
 .annahelp-page .wa-float{ display:none !important; }
+
+/* ===== HOTFIX SFONDO GARUDA: niente grigio durante lo scroll ===== */
+html, body{
+  height: 100%;
+  background: #050010 !important; /* base scura Garuda */
+}
+
+body{
+  overflow-x: hidden;
+}
+
+/* il layer neon deve coprire SEMPRE tutta la viewport */
+.page-bg{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;  /* sotto ai contenuti, sopra al body */
+  background:
+    radial-gradient(circle at 20% 0%, rgba(0, 255, 200, 0.35), transparent 55%),
+    radial-gradient(circle at 80% 15%, rgba(255, 0, 180, 0.35), transparent 55%),
+    radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.10), transparent 60%),
+    radial-gradient(circle at 85% 85%, rgba(0, 140, 255, 0.18), transparent 60%),
+    linear-gradient(120deg, #060016 0%, #07001a 40%, #050012 100%);
+}
+
+/* contenuto sopra al layer */
+.page{
+  position: relative;
+  z-index: 1;
+}
+
+/* evita “rimbalzi” strani su alcuni browser */
+@supports (overscroll-behavior: none){
+  body{ overscroll-behavior: none; }
+}
+
+/* ===== AnnaHelp: prompt più grande e più leggibile ===== */
+.annahelp-page .annahelp-prompt{
+  font-size: 16px;       /* prova 16 → 17 */
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+@media (min-width: 900px){
+  .annahelp-page .annahelp-prompt{
+    font-size: 17px;     /* prova 17 → 18 */
+  }
+  .annahelp-page .annahelp-card{
+    padding: 18px 18px;  /* “fondo” più generoso */
+  }
+}
+
+/* ===== HOME desktop: più spazio tra sottotitolo e pillole ===== */
+@media (min-width: 900px){
+  .hero-subtitle{ margin-bottom: 18px; } /* prova 18→26 */
+  .pill-grid{ margin-top: 14px; gap: 16px; } /* gap più arioso */
+}
+
+
+/* =========================================================
+   ANNA HELP — footer attaccato al sottotitolo
+   (override mirato, non rompe il resto del sito)
+   ========================================================= */
+
+.page-annahelp .hero-subtitle{
+  margin-bottom: 0 !important;
+}
+
+.page-annahelp .footer{
+  margin-top: 0 !important;
+}
+
+/* =========================================================
+   PAGINE LEGALI (Privacy Policy / Cookie Policy)
+   Scopo:
+   - mantenere la grafica del sito
+   - usare il footer vetrato di Anna Help
+   - NON introdurre nuove varianti
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   1️⃣ ALLINEAMENTO HERO → FOOTER
+   ---------------------------------------------------------
+   Rimuove qualsiasi spazio verticale tra:
+   - sottotitolo
+   - footer vetrato
+   (come nella pagina Anna Help)
+   --------------------------------------------------------- */
+
+.legal-page .hero-subtitle{
+  margin-bottom: 0 !important;
+}
+
+.legal-page .footer{
+  margin-top: 0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   2️⃣ TITOLO PAGINA LEGALE (SOLO H1)
+   ---------------------------------------------------------
+   - vale SOLO per Privacy / Cookie
+   - NON tocca titoli del sito
+   - usa Graduate come richiesto
+   - mantiene il resto del testo invariato
+   --------------------------------------------------------- */
+
+.legal-page > .page.section > h1{
+  font-family: 'Graduate', serif;
+  letter-spacing: 0.06em;
+}
+
+
+/* ---------------------------------------------------------
+   3️⃣ SEPARATORE NEON “#”
+   ---------------------------------------------------------
+   Funzione:
+   - separare il testo legale dal blocco logo + footer
+   - fungere da “chiusura visiva” della pagina
+   - stile coerente con il neon Garuda del sito
+   --------------------------------------------------------- */
+
+.legal-divider{
+  margin: 60px auto 80px;     /* respiro sopra e sotto */
+  text-align: center;
+
+  font-family: 'Graduate', serif;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
+
+  color: #00ffd5;             /* cyan neon Garuda */
+
+  text-shadow:
+    0 0 6px  rgba(0, 255, 213, 0.6),
+    0 0 14px rgba(0, 255, 213, 0.5),
+    0 0 28px rgba(0, 255, 213, 0.4);
+}
+
+/* ===============================
+   PILL — MOBILE LIBERE (NO DESKTOP RULES)
+   =============================== */
+@media (max-width: 560px){
+
+  /* la griglia resta flex fluida */
+  .pill-grid{
+    gap: 8px;
+  }
+
+  /* pillole = contenuto naturale */
+  .pill{
+    padding: 12px 18px;
+    font-size: .95rem;
+    white-space: normal;      /* il testo può andare a capo */
+    max-width: 100%;
+  }
+
+  /* DISATTIVA pill-wide su mobile */
+  .pill-wide{
+    min-width: unset;
+    width: auto;
+    flex: 0 1 auto;
+  }
+
+}
+

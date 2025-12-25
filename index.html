@@ -16,11 +16,48 @@
 <body class="page-home">
 
 <div id="cookie-banner" class="cookie-banner">
-  <p>
-    Questo sito utilizza solo cookie tecnici necessari al funzionamento.
-    <a href="CookiePolicy.html">Scopri di più</a>
+  <p class="cookie-line">
+    <span class="cookie-prompt">#Anna@SportelloPraticheOnline</span>
+    <span class="cookie-arrow">&gt;</span>
+    <span class="cookie-msg">Il mio sito utilizza solo cookie tecnici necessari al funzionamento.</span>
+    <a class="cookie-link" href="CookiePolicy.html">Scopri di più</a>
   </p>
-  <button id="cookie-accept">Ok</button>
+
+  <button class="cookie-btn" id="cookie-accept" type="button">OK</button>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const banner = document.getElementById("cookie-banner");
+  const btn = document.getElementById("cookie-accept");
+  const KEY = "cookieAccepted";
+
+  if (!banner || !btn) return;
+
+  /* Se già accettato → non mostrare */
+  if (localStorage.getItem(KEY) === "1") {
+    document.body.classList.remove("show-cookie");
+    banner.style.display = "none";
+    banner.classList.remove("is-hiding");
+    return;
+  }
+
+  /* Mostra banner */
+  document.body.classList.add("show-cookie");
+  banner.style.display = "flex";
+
+  /* Click su OK */
+  btn.addEventListener("click", () => {
+    banner.classList.add("is-hiding");
+
+    setTimeout(() => {
+      localStorage.setItem(KEY, "1");
+      document.body.classList.remove("show-cookie");
+      banner.style.display = "none";
+      banner.classList.remove("is-hiding");
+    }, 200);
+  });
+});
+</script>
+  
 </div>
 
   
@@ -45,30 +82,67 @@
      <p class="hero-subtitle">
        Pratiche fiscali &nbsp;·&nbsp; Servizi &nbsp;·&nbsp; Pratiche previdenziali
      </p>
+
+<template id="pill-grid-old">
+  <div class="pill-grid">
+
+    <!-- RIGA 1 — PRATICHE FISCALI STUPENDE -->
+    <button class="pill pill-fiscale">ISEE</button>
+    <button class="pill pill-fiscale f24">F24</button>
+    <button class="pill pill-fiscale">730</button>
+    <button class="pill pill-fiscale pill-wide">Modello Redditi Persone Fisiche</button>
+    <button class="pill pill-fiscale">IMU</button>
+    <button class="pill pill-fiscale pill-wide pill-riscossione">
+      Pratiche Riscossione AdE
+    </button>
+
+    <!-- PREVIDENZA -->
+    <button class="pill pill-previdenza">Invalidità civile</button>
+    <button class="pill pill-previdenza pill-wide">Modello RED INPS</button>
+    <button class="pill pill-previdenza pill-wide">Prestazioni INPS</button>
+    <button class="pill pill-previdenza">Immigrazione</button>
+
+    <!-- SERVIZI -->
+    <button class="pill pill-servizi pill-wide">Lavoratori domestici</button>
+    <button class="pill pill-servizi pill-wide">Servizi digitali</button>
+    <button class="pill pill-servizi">Invio PEC</button>
+    <button class="pill pill-servizi">Bonus locali</button>
+
+  </div>
+</template>
+
 <div class="pill-grid">
 
-  <!-- RIGA 1 — PRATICHE FISCALI -->
-  <button class="pill">ISEE</button>
-  <button class="pill">730</button>
-  <button class="pill pill-wide">Modello Redditi Persone Fisiche</button>
-  <button class="pill">IMU</button>
+  <button class="pill pill-servizi">Invio PEC</button>
+  <button class="pill pill-fiscale">ISEE</button>
+  <button class="pill pill-previdenza">Invalidità civile</button>
 
-  <!-- RIGA 2 — SERVIZI CONTINUI / TRASVERSALI -->
-  <button class="pill pill-wide">Lavoratori domestici</button>
-  <button class="pill pill-wide">Servizi digitali</button>
-  <button class="pill">Invio PEC</button>
+  <button class="pill pill-fiscale f24">F24</button>
+  <button class="pill pill-servizi pill-wide">Servizi digitali</button>
 
-  <!-- RIGA 3 — PREVIDENZIALE -->
-  <button class="pill">Invalidità civile</button>
-  <button class="pill pill-wide">Modello RED INPS</button>
+  <button class="pill pill-previdenza pill-wide">Modello RED INPS</button>
+  <button class="pill pill-fiscale">730</button>
 
-  <!-- RIGA 4 — AMMINISTRATIVO / ALTRO -->
-  <button class="pill">Bonus locali</button>
-  <button class="pill">Immigrazione</button>
+  <button class="pill pill-servizi pill-wide">Lavoratori domestici</button>
+  <button class="pill pill-previdenza">Immigrazione</button>
+
+  <button class="pill pill-fiscale pill-wide pill-riscossione">
+    Pratiche Riscossione AdE
+  </button>
+
+  <button class="pill pill-servizi">Bonus locali</button>
+  <button class="pill pill-fiscale">IMU</button>
+
+  <button class="pill pill-previdenza pill-wide">Prestazioni INPS</button>
+
+  <button class="pill pill-fiscale pill-wide">
+    Modello Redditi Persone Fisiche
+  </button>
 
 </div>
 
-<button class="btn-isee2026" id="isee2026-btn">
+<!-- ISEE  -->
+ <button class="btn-isee2026" id="isee2026-btn">
   ISEE 2026
 </button>
 
@@ -216,32 +290,5 @@
     <path d="M16 2.67C8.64 2.67 2.67 8.64 2.67 16c0 2.35.62 4.56 1.71 6.48L3 29l6.69-1.75A13.27 13.27 0 0 0 16 29.33c7.36 0 13.33-5.97 13.33-13.33S23.36 2.67 16 2.67zm0 24.04c-2.1 0-4.05-.62-5.7-1.69l-.41-.25-3.97 1.04 1.06-3.87-.27-.4A10.63 10.63 0 0 1 5.33 16C5.33 10.1 10.1 5.33 16 5.33S26.67 10.1 26.67 16 21.9 26.71 16 26.71z"/>
   </svg>
 </a>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const banner = document.getElementById("cookie-banner");
-  const btn = document.getElementById("cookie-accept");
-  if (!banner || !btn) return;
-
-  const KEY = "cookieAccepted_v2";
-
-  if (localStorage.getItem(KEY) === "true") {
-    document.body.classList.remove("show-cookie");
-    banner.style.display = "none";
-  } else {
-    document.body.classList.add("show-cookie");
-    banner.style.display = "flex";
-  }
-
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    localStorage.setItem(KEY, "true");
-    document.body.classList.remove("show-cookie");
-    banner.style.display = "none";
-  });
-});
-</script>
-
 </body>
 </html>
