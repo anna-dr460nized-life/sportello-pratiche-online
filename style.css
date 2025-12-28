@@ -815,85 +815,262 @@ body{
 }
 .err404-home:hover{ transform:translateY(-1px); filter:brightness(1.05); }
 
-/* -------------------- FOOTER -------------------- */
+/* =========================================================
+   FOOTER — DOPPIA VERSIONE
+   Desktop: orizzontale
+   Mobile: verticale + QR
+   ========================================================= */
 
 .footer{
-  margin:26px auto 40px;
-  max-width:760px;
-  padding:22px 20px;
-  text-align:center;
-  font-size:.95rem;
+  margin: 26px auto 40px;
+  max-width: 1040px;
+  padding: 0 16px;
+}
+
+.footer-skin{
+  border-radius: 22px;
+  padding: 22px 22px 18px;
 
   background:
-    radial-gradient(circle at 0% 0%, rgba(0,255,200,.25), transparent 50%),
-    radial-gradient(circle at 100% 100%, rgba(255,0,200,.22), transparent 55%),
-    rgba(5,5,25,.88);
+    radial-gradient(circle at 0% 0%, rgba(0,255,200,.18), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(255,0,200,.16), transparent 55%),
+    rgba(5,5,25,.72);
 
-  border-radius:14px;
+  border: 1px solid rgba(255,255,255,.10);
+
   box-shadow:
-    0 0 22px rgba(0,255,200,.45),
-    0 0 40px rgba(255,0,200,.30);
+    0 0 0 1px rgba(0,255,200,.12) inset,
+    0 0 22px rgba(0,255,200,.28),
+    0 0 40px rgba(255,0,200,.18);
 }
 
-.footer-icons{
+/* --- show/hide layout --- */
+.footer-layout--mobile{ display:none; }
+.footer-layout--desktop{ display:block; }
+
+/* Soglia: sotto questa larghezza mostriamo il footer verticale */
+@media (max-width: 760px){
+  .footer-layout--desktop{ display:none; }
+  .footer-layout--mobile{ display:block; }
+  .legal-links--desktop{ display:none; }
+}
+
+/* --------- Header desktop con linee --------- */
+.footer-head{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom: 14px;
+}
+
+.footer-head__line{
+  height:1px;
+  flex:1;
+  background: linear-gradient(90deg,
+    rgba(0,255,200,0),
+    rgba(0,255,200,.65),
+    rgba(255,0,200,.55),
+    rgba(255,0,200,0)
+  );
+  opacity:.9;
+}
+
+.footer-brand{
+  font-family: 'Graduate', serif;
+  font-size: clamp(1.25rem, 2.1vw, 1.8rem);
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-align:center;
+
+  color: #fdfdff;
+  text-shadow:
+    0 0 10px rgba(0,255,200,.55),
+    0 0 22px rgba(255,0,200,.35);
+}
+
+.footer-brand--mobile{
+  margin-bottom: 14px;
+}
+
+/* --------- Desktop grid --------- */
+.footer-desktop-grid{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.footer-contacts{
+  display:flex;
+  flex-direction:column;
+  gap: 12px;
+}
+
+/* Righe con icona */
+.frow{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+
+  text-decoration:none;
+  color: #e9f9ff;
+
+  padding: 10px 12px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.06);
+
+  box-shadow: 0 0 0 1px rgba(0,255,200,.06) inset;
+
+  transition: transform .12s ease, filter .12s ease;
+}
+
+.frow:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.frow--flat{
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.05);
+}
+
+.fico{
+  width: 22px;
+  height: 22px;
+  opacity: .95;
+  filter: drop-shadow(0 0 8px rgba(0,255,220,.35));
+}
+
+.ftext{
+  line-height: 1.35;
+  overflow-wrap:anywhere;
+}
+
+.fsub{
+  opacity: .75;
+  font-weight: 500;
+}
+
+/* Riga P.IVA + nome (desktop) */
+.footer-bottomline{
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,.08);
+
   display:flex;
   justify-content:center;
-  gap:18px;
-  margin-bottom:14px;
+  flex-wrap:wrap;
+  gap: 10px;
+
+  letter-spacing: .12em;
+  font-weight: 700;
+  opacity: .92;
+}
+.footer-bottomline .dot{ opacity:.6; }
+
+/* Box pagamento (desktop) */
+.footer-paybox{
+  padding: 14px 14px 12px;
+  border-radius: 18px;
+
+  background: rgba(0,0,0,.18);
+  border: 1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 0 18px rgba(255,0,200,.12),
+    0 0 18px rgba(0,255,200,.10);
+  text-align:center;
 }
 
-.icon-circle{
-  width:42px;
-  height:42px;
-  border-radius:50%;
+.pay-title{
+  font-family:'Graduate', serif;
+  letter-spacing: .10em;
+  opacity: .95;
+  margin-bottom: 10px;
+}
+
+.pay-hint{
+  margin-top: 10px;
+  font-size: .9rem;
+  opacity: .72;
+}
+
+/* Bottone SumUp (capsula neon) */
+.sumup-btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
+
+  padding: 12px 18px;
+  border-radius: 999px;
   text-decoration:none;
 
-  background: radial-gradient(circle, #00f7d2, #00c4ff);
-  color:#040014;
+  color:#ffffff;
+  font-weight: 800;
+
+  background: linear-gradient(135deg, rgba(0,255,200,.75), rgba(255,0,200,.75));
+  border: 1px solid rgba(255,255,255,.14);
 
   box-shadow:
-    0 0 16px rgba(0,255,200,.85),
-    0 0 30px rgba(0,180,255,.7);
+    0 0 22px rgba(0,255,200,.22),
+    0 0 22px rgba(255,0,200,.18);
+
+  transition: transform .12s ease, filter .12s ease;
 }
 
-.icon-img{
-  width:26px;
-  height:26px;
-  display:block;
+.sumup-btn:hover{
+  transform: translateY(-1px) scale(1.01);
+  filter: brightness(1.06);
 }
 
-.footer-text{ margin:4px 0; line-height:1.5; }
-.footer-name{ font-weight:700; letter-spacing:.5px; }
-.numero-fisso{ font-size:1.15rem; font-weight:700; margin-top:6px; }
+/* --------- Mobile: card verticali --------- */
+.footer-card{
+  border-radius: 18px;
+  padding: 14px 14px 12px;
+  text-align: center;
 
-.sumup-btn{
-  margin-top:16px;
-  display:inline-block;
-  padding:8px 22px;
-  border-radius:999px;
-  text-decoration:none;
-  font-weight:600;
-  color:#050011;
+  background: rgba(0,0,0,.16);
+  border: 1px solid rgba(255,255,255,.08);
 
-  background:linear-gradient(135deg, var(--cyan), #7fffff);
   box-shadow:
-    0 0 18px rgba(0,255,230,.9),
-    0 0 32px rgba(0,200,255,.75);
+    0 0 18px rgba(0,255,200,.10),
+    0 0 18px rgba(255,0,200,.10);
+
+  margin-bottom: 14px;
 }
 
-/* link legali */
+.footer-mobile-grid{
+  display:grid;
+  grid-template-columns: 1fr 150px;
+  gap: 12px;
+  align-items: start;
+}
+
+
+/* Mobile super stretto: QR va sotto */
+@media (max-width: 420px){
+  .footer-mobile-grid{
+    grid-template-columns: 1fr;
+  }
+ }
+
+/* Legal links */
 .legal-links{
-  margin-top:12px;
-  margin-bottom:24px;
-  font-size:.85rem;
-  opacity:.75;
+  margin-top: 12px;
+  display:flex;
+  justify-content:center;
+  gap: 10px;
+  opacity: .78;
+  font-size: .9rem;
 }
 .legal-links a{
   color:#fff;
   text-decoration:underline;
+  text-underline-offset: 4px;
+  font-weight: 800;
 }
 
 /* -------------------- WHATSAPP FLOAT -------------------- */
@@ -1153,9 +1330,9 @@ body.show-cookie #cookie-banner{ display:flex; }
      HOME: logo cerchio — più piccolo su schermi stretti
      ------------------------------------------------------- */
   .page-home .logo-circle{
-    width:140px;
-    height:140px;
-    margin-top:8px;
+    width:150px;
+    height:150px;
+    margin-top:12px;
   }
 
   /* -------------------------------------------------------
@@ -1877,9 +2054,11 @@ body{
    Obiettivo: stessa resa di "Come funziona", ma nomi logici.
    ========================================================= */
 
+/* ORARI: box vetrato = stessa larghezza del terminal-box di "Come funziona" */
 .section-orari .terminal-box{
-  /* assicura che il vetro sia identico e non “stretto” su mobile */
-  width: min(760px, 100%);
+  width: 100%;
+  max-width: 760px;
+  margin: 18px auto 0;
   box-sizing: border-box;
 }
 
@@ -1931,17 +2110,203 @@ body{
     0 0 14px rgba(0,255,200,.35);
 }
 
-/* Mobile: stessa logica di "Come funziona" (prompt a sinistra, testo a destra)
-   ma più compatto */
-@media (max-width: 620px){
+/* =========================================================
+   ORARI — MOBILE (BLOCCO UNICO, PULITO)
+   Obiettivi:
+   - box ORARI largo come gli altri
+   - testo allineato a sinistra
+   - prompt + online stessa riga, poi a capo
+   ========================================================= */
+@media (max-width: 768px){
 
-  .orari-list li{
-    padding-left: 110px; /* come il mobile fix di "Come funziona" */
-    font-size: 0.95rem;
-    line-height: 1.65;
+  /* 1) togli padding doppio della sezione annidata */
+  #come-funziona .section-orari{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important;
   }
 
-  .orari-list li::before{
-    max-width: 100px;   /* prompt più corto su schermi piccoli */
+  /* 2) stesso “respiro” degli altri box: padding esterno */
+/* ORARI: niente padding extra (lo fa già la .section esterna) */
+#come-funziona .section-orari{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+  /* 3) IL VETRO: deve riempire il contenitore */
+  #come-funziona .section-orari .terminal-box,
+  #come-funziona .section-orari .terminal-box--orari{
+    width: 100% !important;
+    max-width: 760px !important;
+    margin: 18px 0 0 !important;
+    box-sizing: border-box !important;
+
+    /* importantissimo: su mobile ti si stava “centrando” tutto */
+    text-align: left !important;
+  }
+
+  /* 4) righe: niente colonna finta su mobile */
+  #come-funziona .orari-list li{
+  padding-left: 0 !important;
+  display: block !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important; /* <-- QUESTO evita il taglio */
+}
+
+  /* 5) prompt inline */
+  #come-funziona .orari-list li::before{
+    position: static !important;
+    display: inline !important;
+    content: "# spo:// >\00a0" !important;
+    white-space: nowrap !important;
+  }
+
+  /* 6) online: resta col prompt e poi va a capo */
+  #come-funziona .orari-online{
+    display: inline !important;
+    white-space: nowrap !important;
+  }
+  #come-funziona .orari-online::after{
+    content: "\A" !important;
+    white-space: pre !important;
+  }
+}
+/* ORARI — NON TAGLIARE IL GLOW (fix vero) */
+#come-funziona,
+#come-funziona .section-orari{
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+/* === FOOTER PROMPT (stile Garuda/terminal) === */
+.footer-prompt{
+  /* blocco centrato, testo interno allineato a sinistra */
+  width: fit-content;
+  margin: 14px auto 0;
+  text-align: left;
+
+  /* look terminal */
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 1.02rem;
+  line-height: 1.55;
+
+  /* respirazione */
+  padding: 6px 2px;
+}
+
+/* riga a 4 colonne: bullet | label | : | valore */
+.footer-prompt .prompt-row{
+  display: grid;
+  grid-template-columns: 18px 72px 16px 1fr;
+  align-items: baseline;
+  column-gap: 12px;
+  margin: 10px 0;
+}
+
+.footer-prompt .prompt-bullet{
+  opacity: .95;
+}
+
+.footer-prompt .prompt-key{
+  letter-spacing: .12em;
+  opacity: .92;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.footer-prompt .prompt-sep{
+  opacity: .75;
+}
+
+.footer-prompt .prompt-val{
+  white-space: nowrap;
+}
+
+/* NOTE può andare a capo, altrimenti è troppo lunga */
+.footer-prompt .prompt-row:last-child .prompt-val{
+  white-space: normal;
+}
+
+/* link “puliti” in stile terminal */
+.footer-prompt .prompt-link{
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,.35);
+}
+.footer-prompt .prompt-link:hover{
+  border-bottom-color: rgba(0,255,200,.9);
+}
+
+/* Mobile: riduco un filo la label e lascio più spazio al valore */
+@media (max-width: 420px){
+  .footer-prompt{ font-size: .98rem; }
+  .footer-prompt .prompt-row{
+    grid-template-columns: 16px 60px 14px 1fr;
+    column-gap: 10px;
+  }
+}
+/* =========================================================
+   LEGAL LINKS — FIX DEFINITIVO (mettilo IN FONDO al CSS)
+   Scopo: su mobile NON devono comparire i link duplicati.
+   ========================================================= */
+
+/* DESKTOP: mostra layout desktop + legal desktop */
+.footer-layout--mobile{ display:none !important; }
+.footer-layout--desktop{ display:block !important; }
+.legal-links--desktop{ display:flex !important; }
+.footer-card--legal{ display:none !important; }
+
+/* MOBILE: mostra layout mobile + legal nella card */
+@media (max-width: 768px){
+  .footer-layout--desktop{ display:none !important; }
+  .footer-layout--mobile{ display:block !important; }
+
+  .legal-links--desktop{ display:none !important; }
+  .footer-card--legal{ display:block !important; }
+}
+
+/* Stile UNA VOLTA SOLA */
+.legal-links{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin:14px auto 0;
+  text-align:center;
+  font-weight:800;
+}
+
+.legal-links a{
+  font-weight:800;
+  color:#fff;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
+.ftext-link, .fsub-link{
+  color: inherit;
+  text-decoration: none;
+}
+
+.ftext-link:hover, .fsub-link:hover{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* === MOBILE: centra SOLO le due righe identità (nome + P.IVA) === */
+@media (max-width: 760px){
+
+  /* colpisce SOLO il footer mobile */
+  .footer-layout--mobile .footer-mobile-lines .frow.frow--center{
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  .footer-layout--mobile .footer-mobile-lines .frow.frow--center .ftext{
+    width: 100% !important;
+    text-align: center !important;
+    display: block !important;
   }
 }
