@@ -62,32 +62,142 @@
       </p>
     </header>
 
-    <!-- FOOTER -->
-    <footer class="footer" id="contatti">
+   
+<footer class="footer" id="contatti">
+  <div class="footer-skin">
 
-      <div class="footer-icons">
-        <a href="mailto:info@sportellopratiche.online" class="icon-circle">✉️</a>
-        <a href="tel:07611521735" class="icon-circle">📞</a>
-        <a href="https://api.whatsapp.com/send?phone=3907611521735"
-           class="icon-circle" target="_blank" rel="noopener">
-          <img src="icons8-whatsapp-40.png" alt="WhatsApp" class="icon-img">
-        </a>
+    <!-- =========================
+         DESKTOP (orizzontale)
+         ========================= -->
+    <section class="footer-layout footer-layout--desktop">
+
+      <div class="footer-head">
+        <span class="footer-head__line"></span>
+        <div class="footer-brand">SPORTELLO PRATICHE ONLINE</div>
+        <span class="footer-head__line"></span>
       </div>
 
-      <p class="footer-text"><strong>ANNA SIDYAKINA</strong></p>
-      <p class="footer-text"><strong>P.IVA: 02412340560</strong></p>
-      <p class="footer-text"><strong>info@sportellopratiche.online</strong></p>
-      <p class="footer-text"><strong>Domicilio digitale PEC: sidyakina@pec.it</strong></p>
-      <p class="footer-text numero-fisso"><strong>0761.152.17.35</strong></p>
-      <p class="footer-text">Numero fisso collegato a WhatsApp</p>
+      <div class="footer-desktop-grid">
 
-      <a class="sumup-btn"
-         href="https://pay.sumup.com/b2c/QL1CLFXC"
-         target="_blank" rel="noopener">
-        Paga con SumUp
-      </a>
+        <!-- CONTATTI -->
+        <div class="footer-contacts" aria-label="Contatti">
 
-    </footer>
+          <a class="frow" href="mailto:info@sportellopratiche.online">
+            <img class="fico" src="icons8-posta-elettronica-64.png" alt="">
+            <span class="ftext">info@sportellopratiche.online</span>
+          </a>
+
+          <div class="frow">
+            <img class="fico" src="per_pec_2.png" alt="">
+            <span class="ftext">sidyakina@pec.it</span>
+          </div>
+
+          <a class="frow" href="tel:07611521735">
+            <img class="fico" src="icons8-phone-40.png" alt="">
+            <span class="ftext">0761.152.17.35 <span class="fsub">• Numero fisso su WhatsApp</span></span>
+          </a>
+
+          <div class="footer-bottomline">
+            <span>P.IVA • <strong>02412340560</strong></span>
+            <span class="dot">•</span>
+            <span>ANNA SIDYAKINA</span>
+          </div>
+
+        </div>
+
+        <!-- PAGAMENTO -->
+        <div class="footer-paybox" aria-label="Pagamento">
+          <div class="pay-title">Pagamento</div>
+
+          <a class="sumup-btn" href="https://pay.sumup.com/b2c/QL1CLFXC" target="_blank" rel="noopener">
+            Paga con&nbsp;<strong>SumUp</strong>
+          </a>
+
+          <div class="pay-hint">Paga con POS online</div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================
+         MOBILE (verticale)
+         Ordine: INFO → PAGAMENTO → LEGAL
+         ========================= -->
+    <section class="footer-layout footer-layout--mobile">
+
+      <!-- INFO -->
+      <div class="footer-card footer-card--info">
+
+        <div class="footer-brand footer-brand--mobile">SPORTELLO PRATICHE ONLINE</div>
+
+        <div class="footer-mobile-grid">
+          <div class="footer-mobile-lines">
+
+          <div class="frow frow--flat frow--center">
+  <span class="ftext"><strong>ANNA SIDYAKINA</strong></span>
+</div>
+
+<div class="frow frow--flat frow--center">
+  <span class="ftext">P.IVA • <strong>02412340560</strong></span>
+</div>
+
+            <a class="frow frow--flat" href="mailto:info@sportellopratiche.online">
+              <img class="fico" src="icons8-posta-elettronica-64.png" alt="">
+              <span class="ftext">info@sportellopratiche.online</span>
+            </a>
+
+            <div class="frow frow--flat">
+              <img class="fico" src="per_pec.png" alt="">
+              <span class="ftext">sidyakina@pec.it</span>
+            </div>
+
+            <div class="frow frow--flat">
+  <img class="fico" src="icons8-phone-40.png" alt="">
+
+  <span class="ftext">
+    <a class="ftext-link" href="tel:07611521735">0761.152.17.35</a>
+    <a class="fsub-link" href="https://wa.me/3907611521735" target="_blank" rel="noopener">[su WhatsApp]</a>
+  </span>
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PAGAMENTO (sotto) -->
+      <div class="footer-card footer-card--pay">
+        <div class="pay-title">Pagamento</div>
+
+        <a class="sumup-btn" href="https://pay.sumup.com/b2c/QL1CLFXC" target="_blank" rel="noopener">
+          Paga con&nbsp;<strong>SumUp</strong>
+        </a>
+
+        <div class="pay-hint">Paga con POS online</div>
+      </div>
+
+      <!-- LEGAL (ultimo) -->
+      <div class="footer-card footer-card--legal">
+        <div class="legal-links">
+          <a href="PrivacyPolicy.html">Privacy Policy</a>
+          <span>·</span>
+          <a href="CookiePolicy.html">Cookie Policy</a>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- LEGAL DESKTOP-ONLY -->
+    <div class="legal-links legal-links--desktop">
+      <a href="PrivacyPolicy.html">Privacy Policy</a>
+      <span>·</span>
+      <a href="CookiePolicy.html">Cookie Policy</a>
+    </div>
+
+  </div>
+</footer>
 
 
 
