@@ -7,6 +7,29 @@
    - Anna, HELP! non sovrappone la hero su mobile
    - WhatsApp floating sempre bottom-right
    ========================================================= */
+/* =====================================================================
+   🧭 MAPPA / ORDINE LOGICO (SOLO COMMENTI) — NON CAMBIA LA GRAFICA
+   ---------------------------------------------------------------------
+   01) FONDAMENTA GLOBALI    : :root, reset, body, sfondo Garuda (.page-bg)
+   02) STRUTTURA CONDIVISA   : .page, .section, headings, show/hide, animazioni
+   03) HERO + CTA (COMUNI)   : home + AnnaHelp (logo, titoli, bottoni, ISEE popup)
+   04) HOME (COMPONENTI)     : terminal “Come funziona”, pill grid + palette, CTA telefono, orari
+   05) PAGINA ANNA HELP      : hero badge, intro, glass, card list, payoff, micro-fix dedicati
+   06) PAGINE LEGALI         : Cookie/Privacy (stesse regole, solo allineamenti mirati)
+   07) PAGINA 404            : box, typography, bottone back-home
+   08) FOOTER                : layout desktop/mobile, contatti, SumUp, legal links, prompt terminale
+   09) UI FLOAT              : WhatsApp floating + Cookie banner
+   10) RESPONSIVE & HOTFIX   : media query + override (devono stare “dopo” per la cascade)
+   ---------------------------------------------------------------------
+   ⚠️ Nota tecnica: in CSS l’ordine conta. Qui ho aggiunto TITOLI/COMMENTI
+   e ho marcato i blocchi “HOTFIX/OVERRIDE” che DEVONO restare in fondo
+   perché sovrascrivono intenzionalmente le regole base.
+   ===================================================================== */
+
+
+/* =====================================================================
+   01) FONDAMENTA GLOBALI — variabili, reset, body, sfondo Garuda
+   ===================================================================== */
 
 /* -------------------- BASE / SFONDO -------------------- */
 
@@ -56,6 +79,10 @@ body{
 
 /* blocca qualsiasi “sbordo” laterale accidentale */
 .page, main, section{ overflow-x:hidden; }
+
+/* =====================================================================
+   03) HERO + CTA (HOME + ANNAHELP) — logo, titoli, bottoni, popup ISEE
+   ===================================================================== */
 
 /* -------------------- HERO (HOME + ANNAHELP) -------------------- */
 
@@ -307,6 +334,10 @@ body{
   .hero-arrow{ animation:none; }
 }
 
+/* =====================================================================
+   02) STRUTTURA CONDIVISA — sezioni, H2, animazioni show/hide
+   ===================================================================== */
+
 /* -------------------- SEZIONI -------------------- */
 
 .section{
@@ -330,6 +361,10 @@ body{
   from{ opacity:0; transform:translateY(12px); }
   to{ opacity:1; transform:translateY(0); }
 }
+
+/* =====================================================================
+   04A) HOME — “COME FUNZIONA” (terminal-style) + steps list
+   ===================================================================== */
 
 /* -------------------- COME FUNZIONA (terminal-style) -------------------- */
 
@@ -389,6 +424,10 @@ body{
   overflow:hidden;
   text-overflow:ellipsis;
 }
+
+/* =====================================================================
+   04B) HOME — PILL GRID + PALETTE (gerarchia servizi)
+   ===================================================================== */
 
 /* -------------------- PILL GRID (HOME) -------------------- */
 
@@ -532,6 +571,10 @@ body{
     0 0 52px rgba(255,60,160,.6);
 }
 
+
+/* =====================================================================
+   05) PAGINA — ANNA HELP (dedicata)
+   ===================================================================== */
 
 /* -------------------- ANNA HELP (pagina dedicata) -------------------- */
 
@@ -744,6 +787,10 @@ body{
     transparent);
 }
 
+/* =====================================================================
+   07) PAGINA — 404
+   ===================================================================== */
+
 /* -------------------- 404 -------------------- */
 
 .err404{
@@ -814,6 +861,10 @@ body{
     0 0 28px rgba(0,160,255,.7);
 }
 .err404-home:hover{ transform:translateY(-1px); filter:brightness(1.05); }
+
+/* =====================================================================
+   08) COMPONENTE — FOOTER (desktop + mobile) — contatti, P.IVA, SumUp, legal links
+   ===================================================================== */
 
 /* =========================================================
    FOOTER — DOPPIA VERSIONE
@@ -890,7 +941,7 @@ body{
 }
 
 .footer-brand--mobile{
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 /* --------- Desktop grid --------- */
@@ -1073,6 +1124,10 @@ body{
   font-weight: 800;
 }
 
+/* =====================================================================
+   09A) UI FLOAT — WhatsApp button
+   ===================================================================== */
+
 /* -------------------- WHATSAPP FLOAT -------------------- */
 
 .wa-float{
@@ -1123,6 +1178,10 @@ body{
   60%{ transform:scale(1.12); opacity:.18; }
   100%{ transform:scale(1.18); opacity:0; }
 }
+
+/* =====================================================================
+   09B) UI FLOAT — Cookie banner (JS toggles body.show-cookie)
+   ===================================================================== */
 
 /* ================= COOKIE BANNER (fish / Garuda) ================= */
 
@@ -1404,6 +1463,11 @@ body.show-cookie #cookie-banner{ display:flex; }
 }
 
 /* =========================================================
+/* =====================================================================
+   10) HOTFIX / OVERRIDE — blocchi aggiunti “in fondo” (l’ordine conta!)
+      Qui NON si “riordina” oltre: questi pezzi devono restare dopo.
+   ===================================================================== */
+
    ANNA BRAND HOTFIX — minimal overrides (no redesign)
    Fixes:
    - Anna, HELP! button alignment (top-right) + spacing from logo
@@ -1849,6 +1913,10 @@ body{
 }
 
 /* =========================================================
+/* =====================================================================
+   06) PAGINE LEGALI — Cookie Policy / Privacy Policy
+   ===================================================================== */
+
    PAGINE LEGALI (Privacy Policy / Cookie Policy)
    Scopo:
    - mantenere la grafica del sito
@@ -2263,4 +2331,153 @@ body{
 
 .legal-page .footer .legal-links a{
   white-space: nowrap;
+}
+
+/* =====================================================================
+   FINE FILE — style.ordered.css
+   ===================================================================== */
+
+  /* =========================================================
+   ANNA HELP — BOX DESCRITTIVO (BOOST VISIVO)
+   Nessun cambio struttura, solo PRESENZA.
+   ========================================================= */
+
+.annahelp-desc-box{
+  margin-top: 42px;
+  padding: 28px 26px;
+
+  background:
+    radial-gradient(circle at 10% 10%, rgba(0,255,220,.28), transparent 55%),
+    radial-gradient(circle at 90% 90%, rgba(255,0,200,.22), transparent 55%),
+    rgba(6,6,28,.92);   /* 👈 più scuro = più deciso */
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 0 0 1px rgba(0,255,200,.18),
+    0 0 28px rgba(0,255,200,.35),
+    0 0 52px rgba(255,0,200,.28);
+
+  text-align: center;
+}
+
+/* TESTO: meno blando, più “qui si agisce” */
+.annahelp-desc{
+  font-size: 1.22rem;        /* 👈 più grande */
+  line-height: 1.7;
+  font-weight: 600;          /* 👈 più corpo */
+  letter-spacing: .01em;
+  opacity: 1;
+
+  color: #f4ffff;
+
+  text-shadow:
+    0 0 6px rgba(0,255,255,.35),
+    0 0 14px rgba(0,0,0,.45);
+}
+
+/* parola chiave se vuoi enfatizzare (opzionale) */
+.annahelp-desc strong{
+  font-weight: 900;
+  color: var(--cyan);
+  text-shadow:
+    0 0 8px rgba(0,255,220,.75),
+    0 0 18px rgba(0,255,220,.45);
+}
+
+/* mobile: niente muri di testo */
+@media (max-width: 768px){
+  .annahelp-desc{
+    font-size: 1.12rem;
+    line-height: 1.65;
+  }
+}
+/* === ANNA HELP — tutto visibile nella prima schermata (desktop) === */
+@media (min-width: 900px){
+
+  /* comprime leggermente la hero */
+  .annahelp-page .hero{
+    padding-bottom: 24px !important;
+  }
+
+  /* riduce spazio sotto il box descrittivo */
+  .annahelp-desc-box{
+    margin-bottom: 12px !important;
+  }
+
+  /* CTA più vicina al contenuto */
+  .annahelp-toggle,
+  .btn-primary{
+    margin-top: 6px !important;
+  }
+}
+
+/* ===== ANNAHELP — MOBILE: togli vuoto tra badge e titolo ===== */
+@media (max-width: 600px){
+
+  /* 1) “chiudi” il buco sotto l’immagine (spinge su il titolo) */
+  .annahelp-page .annahelp-hero-image{
+    margin-bottom: -34px !important;  /* prova: -24 / -34 / -44 */
+  }
+
+  /* 2) micro: alza leggermente il badge (opzionale ma aiuta) */
+  .annahelp-page .annahelp-hero-img{
+    transform: translateY(-10px) !important; /* prova: -6 / -10 / -14 */
+  }
+
+  /* 3) titolo più compatto (niente aria inutile) */
+  .annahelp-page .anna-section h2{
+    margin-top: 8px !important;
+    margin-bottom: 12px !important;
+    line-height: 1.05 !important;
+  }
+}
+
+/* ===== ANNAHELP — MOBILE: titolo pulito e leggibile ===== */
+@media (max-width: 600px){
+
+  .annahelp-page .anna-section h2{
+    font-size: 1.7rem !important;     /* entra SEMPRE */
+    line-height: 1.15 !important;
+    letter-spacing: .06em !important;
+    text-wrap: balance;               /* 🔥 magia moderna */
+  }
+}
+/* ===== MOBILE: CTA visibile nella prima schermata ===== */
+@media (max-width: 600px){
+
+  /* riduce aria sotto il titolo */
+  .annahelp-page .anna-section h2{
+    margin-bottom: 10px !important;
+  }
+
+  /* compatta il box descrittivo */
+  .annahelp-desc-box{
+    margin-top: 10px !important;
+  }
+
+  /* avvicina il pulsante al box */
+  .annahelp-toggle,
+  .btn-primary{
+    margin-top: 14px !important;
+  }
+}
+/* ================================
+   ANNA HELP — MOBILE
+   Elimina spazio sopra al badge
+   ================================ */
+@media (max-width: 600px){
+
+  /* la section dell'immagine NON deve creare aria sopra */
+  .annahelp-hero-image{
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  /* l'immagine AHH.png viene leggermente tirata su */
+  .annahelp-hero-img{
+    display: block;
+    margin-top: -60px;   /* <-- QUESTO È IL PUNTO CHIAVE */
+  }
+
 }
