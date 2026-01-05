@@ -1,0 +1,15 @@
+# === URL pulite (senza .html) ===
+/anna-help      /Anna-HELP.html       200
+/cookiepolicy   /CookiePolicy.html    200
+/privacypolicy  /PrivacyPolicy.html   200
+
+# /404 deve essere un errore vero (non una pagina normale)
+/404            /404.html             404
+
+# === vecchie URL Webnode: rimozione definitiva (410) ===
+/bonus-asilo-nido-inps/   /404.html   410
+/dsu-isee/                /404.html   410
+/sfl/                     /404.html   410
+
+# === tutto ciò che non esiste -> 404 con grafica ===
+/*              /404.html             404
