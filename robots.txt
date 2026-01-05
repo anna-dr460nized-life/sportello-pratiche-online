@@ -1,4 +1,7 @@
+# robots.txt — SportelloPratiche.online
+# Scopo: permettere la scansione del sito e indicare dove sta la sitemap.
+
 User-agent: *
-Allow: /
+Disallow:
 
 Sitemap: https://www.sportellopratiche.online/sitemap.xml

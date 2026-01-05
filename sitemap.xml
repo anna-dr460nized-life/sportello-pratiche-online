@@ -1,18 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SITEMAP.XML — SportelloPratiche.online
+  Scopo: elencare a Google le sole pagine REALI e indicizzabili del sito.
+  Regola: NON inserire la 404 in sitemap.
+  Nota: lastmod va aggiornato quando modifichi davvero una pagina (anche la data di oggi va bene).
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- HOME PAGE (/) -->
   <url>
+    <!-- URL canonico della homepage -->
     <loc>https://www.sportellopratiche.online/</loc>
-    <lastmod>2025-01-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <!-- Data ultima modifica della pagina (formato YYYY-MM-DD) -->
+    <lastmod>2026-01-05</lastmod>
   </url>
 
+  <!-- PAGINA SERVIZIO: Anna Help (URL pulito) -->
   <url>
-    <loc>https://www.sportellopratiche.online/annahelp</loc>
-    <lastmod>2025-01-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <!-- Importante: usa /anna-help (con trattino), che è l’URL che vuoi come “ufficiale” -->
+    <loc>https://www.sportellopratiche.online/anna-help</loc>
+    <lastmod>2026-01-05</lastmod>
+  </url>
+
+  <!-- PAGINA LEGALE: Cookie Policy -->
+  <url>
+    <!-- URL pulito della cookie policy -->
+    <loc>https://www.sportellopratiche.online/cookiepolicy</loc>
+    <lastmod>2026-01-05</lastmod>
+  </url>
+
+  <!-- PAGINA LEGALE: Privacy Policy -->
+  <url>
+    <!-- URL pulito della privacy policy -->
+    <loc>https://www.sportellopratiche.online/privacypolicy</loc>
+    <lastmod>2026-01-05</lastmod>
   </url>
 
 </urlset>
