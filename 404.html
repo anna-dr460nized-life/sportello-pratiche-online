@@ -1,13 +1,29 @@
-<!DOCTYPE html>
-<html lang="it">
 <head>
+  <!-- Imposta la codifica dei caratteri: serve per gestire correttamente lettere accentate e simboli -->
   <meta charset="UTF-8">
+
+  <!-- Titolo della pagina: è quello che compare nella scheda del browser e (a volte) nei risultati Google -->
   <title>404 — Sportello Pratiche Online</title>
+
+  <!-- Dice al browser come adattare la pagina su smartphone (layout responsive).
+       Senza questa, su mobile spesso la pagina risulta “zoomata” o con dimensioni strane. -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Graduate&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/style.css">
+  <!-- Carica i font da Google Fonts.
+       Qui stai chiedendo 2 famiglie: Graduate e Inter, con vari pesi (300-600) per Inter. -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Graduate&family=Inter:wght@300;400;500;600&display=swap">
+
+  <!-- Collega il tuo CSS locale (il file style.css) MA con percorso assoluto (/).
+       Il / davanti è fondamentale per la 404: così il CSS si carica anche quando l’URL è tipo /dsu-isee/
+       e non prova a cercare /dsu-isee/style.css (che non esiste). -->
+  <link rel="stylesheet" href="/style.css">
+
+  <!-- Istruzione per i motori di ricerca:
+       - noindex: NON mettere questa pagina nell’indice (non farla comparire su Google)
+       - nofollow: NON seguire i link presenti in questa pagina (in una 404 di solito non serve farli seguire)
+       Questo serve per evitare che la 404 diventi una “pagina indicizzata” come se fosse contenuto normale. -->
+  <meta name="robots" content="noindex, nofollow">
 </head>
 
 <body>
