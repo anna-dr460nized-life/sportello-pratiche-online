@@ -1468,7 +1468,7 @@ body.show-cookie #cookie-banner{ display:flex; }
       Qui NON si “riordina” oltre: questi pezzi devono restare dopo.
    ===================================================================== */
 
-   ANNA BRAND HOTFIX — minimal overrides (no redesign)
+   /*ANNA BRAND HOTFIX — minimal overrides (no redesign)
    Fixes:
    - Anna, HELP! button alignment (top-right) + spacing from logo
    - WhatsApp floating button: higher + softer on content
@@ -1537,7 +1537,7 @@ a.wa-float {
     left: 0;
     top: 0;
     width:100px; /*limita il prompt */
-    margin right: 6px;
+    margin-right: 6px;
     position: absolute;    /* 👈 COME DESKTOP */
     content:"# spo:// › ";
     color: var(--cyan);
@@ -1917,7 +1917,7 @@ body{
    06) PAGINE LEGALI — Cookie Policy / Privacy Policy
    ===================================================================== */
 
-   PAGINE LEGALI (Privacy Policy / Cookie Policy)
+   /*PAGINE LEGALI (Privacy Policy / Cookie Policy)
    Scopo:
    - mantenere la grafica del sito
    - usare il footer vetrato di Anna Help
@@ -2479,5 +2479,4 @@ body{
     display: block;
     margin-top: -60px;   /* <-- QUESTO È IL PUNTO CHIAVE */
   }
-
-}
+  }
