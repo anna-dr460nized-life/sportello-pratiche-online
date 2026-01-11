@@ -2714,32 +2714,36 @@ body{
   }
 }
 
-
-/* === END CAP: blocco finale WhatsApp + timbro === */
-.annahelp-endcap{
-  width: min(680px, 92%);
-  margin: 18px auto 0;
-  padding: 18px 16px 10px;
-  border-radius: 26px;
-
-  background: rgba(6, 10, 26, .44);
-  border: 1px solid rgba(255,255,255,.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.06) inset,
-    0 18px 50px rgba(0,0,0,.35);
-  text-align: center;
+/* ✅ POPUP ISEE: link sempre leggibile (niente viola browser) */
+.isee-popup .isee-box a,
+.isee-popup .isee-box a:visited{
+  color: var(--cyan);
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-shadow:
+    0 0 8px rgba(0,255,220,.55),
+    0 0 16px rgba(0,255,220,.25);
 }
 
-.annahelp-endcap .cta-phone__item{
-  margin: 0 auto 10px !important;
+.isee-popup .isee-box a:hover{
+  filter: brightness(1.15);
 }
 
-.annahelp-endcap .annahelp-stamp--inside{
-  width: min(360px, 86%) !important;
-  margin: 0 auto !important;
-  transform: rotate(-10deg);
-  opacity: .92;
+
+/* ✅ POPUP ISEE: CTA tipo bottone neon */
+.isee-popup .isee-box .popup-cta{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  background: rgba(0,255,200,.14);
+  border: 1px solid rgba(0,255,200,.35);
+  box-shadow: 0 0 18px rgba(0,255,200,.20);
+  text-decoration: none; /* via underline, lo fa già “bottone” */
 }
