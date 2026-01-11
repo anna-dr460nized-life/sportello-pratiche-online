@@ -1723,27 +1723,7 @@ a.wa-float {
   }
 }
 
-/* === Anna HELP — prompt e testo su un'unica riga SOLO su desktop === */
-@media (min-width: 900px) {
-  .annahelp-page .annahelp-card {
-    flex-direction: row;           /* da colonna → riga */
-    align-items: center;
-    gap: 10px;
-  }
 
-  .annahelp-page .annahelp-prompt {
-    display: inline-block;
-    margin-bottom: 0;
-    margin-right: 12px;            /* piccolo spazio tra prompt e testo */
-    white-space: nowrap;
-  }
-
-  .annahelp-page .annahelp-line {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-}
 /* --- Anna Help: riduci il vuoto badge→titolo SOLO su desktop --- */
 @media (min-width: 900px){
   /* stringe lo spazio sotto al badge (AHH.png ha molto “vuoto” interno) */
@@ -2480,3 +2460,286 @@ body{
     margin-top: -60px;   /* <-- QUESTO È IL PUNTO CHIAVE */
   }
   }
+  /* ANNAHELP — titolo accanto al prompt (riga 1) */
+.annahelp-page .annahelp-card .annahelp-line:first-child{
+  gap: 12px;
+  align-items: baseline;
+  flex-wrap: wrap;              /* su schermi piccoli può andare a capo pulito */
+}
+
+/* il “titolo” (quello che sta dopo il prompt) */
+.annahelp-page .annahelp-card .annahelp-line:first-child strong{
+  color: var(--cyan);
+  font-weight: 900;
+  letter-spacing: .02em;
+  text-shadow:
+    0 0 8px rgba(0,255,220,.55),
+    0 0 16px rgba(0,255,220,.25);
+}
+/* Pin Google Maps: SEMPRE piccolo e allineato al testo */
+.annahelp-page img.map-pin{
+  width: 20px !important;
+  height: 20px !important;
+  vertical-align: -3px !important;
+  margin-left: 8px !important;
+  opacity: .95;
+  filter: drop-shadow(0 0 6px rgba(0,255,200,.55));
+}
+
+/* Titolo IN PRESENZA: pin più grande e attaccato a VITERBO */
+.annahelp-page .anna-bottom strong{
+  display: inline-flex;
+  align-items: center;
+  gap: 0;                 /* 👈 appiccicato */
+}
+
+/* dimensione pin SOLO nel titolo */
+.annahelp-page img.map-pin--title{
+  width: 26px !important;   /* aumenta qui: 24 / 26 / 28 */
+  height: 26px !important;
+  margin-left: 0 !important; 
+  vertical-align: baseline !important;
+  filter: drop-shadow(0 0 8px rgba(0,255,200,.55));
+}
+
+/* AnnaHelp: VITERBO + pin = blocco unico (incollato) */
+.annahelp-page .annahelp-prompt{
+  display: inline-flex;
+  align-items: center;     /* attacca davvero icona e testo */
+  gap: 0px;                /* distanza controllata tra VITERBO e pin */
+  white-space: nowrap;     /* non spezzare tra VITERBO e pin */
+}
+
+/* la distanza la gestisce gap, quindi via margin-left */
+.annahelp-page .annahelp-prompt .map-pin{
+  margin-left: 0 !important;
+  vertical-align: baseline !important;
+}
+
+/* =========================================================
+   ANNA HELP — FIX TITOLO: dentro la stessa “gabbia” del box vetro
+   (no classi nuove, solo override mirato)
+   ========================================================= */
+
+/* Il tuo H2 della pagina Anna Help: lo chiudiamo nella stessa larghezza del box */
+.annahelp-page .anna-section h2{
+  width: min(820px, 92%);
+  margin: 18px auto 14px;
+  padding: 0;
+
+  /* resta centrato ma NON sfonda */
+  text-align: center;
+
+  /* dimensione “intelligente” */
+  font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+  line-height: 1.12;
+
+  /* evita allargamenti brutti */
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* Se hai il testo tutto in maiuscolo e ti sembra “urlato”, riduciamo tracking */
+.annahelp-page .anna-section h2{
+  letter-spacing: .08em; /* prima era più alto */
+}
+
+/* Mobile: ancora più stabile */
+@media (max-width: 520px){
+  .annahelp-page .anna-section h2{
+    font-size: clamp(1.55rem, 6.2vw, 2.1rem);
+    letter-spacing: .06em;
+  }
+}
+/* ANNA HELP — titolo centrato SEMPRE (anche se il parent è flex) */
+.section.anna-section h2{
+  width: min(820px, 92%);
+  margin: 18px auto 14px;
+  text-align: center;
+
+  /* QUESTO è il colpo di grazia se c’è di mezzo flex */
+  align-self: center;
+  justify-self: center;
+}
+/* =========================================================
+   ANNA HELP — SPLIT (divisore + # + divisore su 1 riga)
+   ========================================================= */
+.annahelp-split{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 22px auto 22px;
+  width: min(860px, 92%);
+}
+
+.annahelp-split-line{
+  flex: 1;
+  height: 1px;
+  border-radius: 999px;
+  opacity: .9;
+
+  /* Se vuoi replicare il tuo neon, questo è “safe” */
+  background: linear-gradient(90deg,
+    rgba(0,255,255,.00),
+    rgba(0,255,255,.70),
+    rgba(255,0,255,.65),
+    rgba(255,0,255,.00)
+  );
+  box-shadow: 0 0 14px rgba(0,255,255,.25), 0 0 16px rgba(255,0,255,.18);
+}
+
+.annahelp-split-hash{
+  font-family: inherit;            /* usa la tua Graduate se già applicata */
+  font-size: clamp(26px, 3.2vw, 44px);
+  font-weight: 800;
+  line-height: 1;
+  color: #00f6ff;
+  text-shadow: 0 0 10px rgba(0,255,255,.75), 0 0 18px rgba(255,0,255,.35);
+  transform: translateY(-1px);
+}
+
+/* Mobile: un po’ più compatto */
+@media (max-width: 520px){
+  .annahelp-split{ gap: 14px; margin: 18px auto 18px; }
+  .annahelp-split-line{ opacity: .85; }
+}
+
+/* capo “controllato” solo su mobile */
+.mbr{ display:none; }
+@media (max-width: 520px){
+  .mbr{ display:inline; }
+}
+
+@media (max-width: 520px){
+
+  /* questi titoli DEVONO essere testo normale, non due colonne */
+  .anna-bottom strong{
+    display: block !important;
+    text-align: center !important;
+
+    /* importantissimo: evita che flex/grid spacchi le parole */
+    justify-content: initial !important;
+    align-items: initial !important;
+  }
+
+  /* se strong o i figli erano flex/grid, li riportiamo “normali” */
+  .anna-bottom strong,
+  .anna-bottom strong *{
+    display: inline !important;
+  }
+
+  /* e poi riportiamo strong come blocco (dopo aver “sbloccato” i figli) */
+  .anna-bottom strong{
+    display: block !important;
+  }
+}
+
+/* === ANNA HELP: ONLINE / PRESENZA === */
+.anna-bottom{
+  font-size: 22px !important;   /* +2 rispetto a prima */
+  letter-spacing: .12em;
+  margin: 34px auto 22px !important; /* più respiro */
+  text-align: center;
+}
+
+/* spazio extra sopra e sotto il cancelletto */
+.anna-bottom + .hash-divider,
+.hash-divider + .anna-bottom{
+  margin-top: 26px !important;
+}
+.anna-arrow{
+  font-weight: 900;
+  display:inline-block;
+  transform: scale(1.25);
+  margin-right: 6px;
+
+  text-shadow:
+    0 0 6px rgba(0,255,255,.8),
+    0 0 14px rgba(0,255,255,.6);
+}
+.page-annahelp .anna-arrow{
+  display: inline-block !important;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+  font-weight: 900 !important;
+
+  transform: translateY(1px) scale(1.25) !important;
+  margin-right: 8px !important;
+
+  color: var(--cyan) !important;
+  text-shadow:
+    0 0 6px rgba(0,255,255,.85),
+    0 0 16px rgba(0,255,255,.55) !important;
+}
+
+/* === ANNA HELP: a capo SOLO su mobile per ONLINE / PRESENZA === */
+@media (max-width: 760px){
+
+  .anna-bottom.anna-bottom--split{
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  .anna-bottom.anna-bottom--split .anna-bottom__top,
+  .anna-bottom.anna-bottom--split .anna-bottom__sub{
+    display: block;
+  }
+
+  .anna-bottom.anna-bottom--split .anna-bottom__sub{
+    margin-top: 10px;
+  }
+
+  /* pin appiccicato e allineato bene sulla riga sotto */
+  .anna-bottom.anna-bottom--split .map-pin{
+    width: 22px;
+    height: 22px;
+    vertical-align: -4px;
+    margin-left: 6px;
+  }
+}
+/* ANNA HELP — freccia più ciccia (desktop + mobile) */
+.anna-arrow{
+  display: inline-block;
+  font-weight: 900;
+  font-size: 1.2em;      /* base */
+  line-height: 1;
+  transform: translateY(-0.02em);
+}
+
+/* MOBILE: ancora più grossa e “bold” */
+@media (max-width: 600px){
+  .anna-arrow{
+    font-size: 1.45em;   /* aumenta qui se vuoi */
+    font-weight: 900;
+  }
+}
+
+
+/* === END CAP: blocco finale WhatsApp + timbro === */
+.annahelp-endcap{
+  width: min(680px, 92%);
+  margin: 18px auto 0;
+  padding: 18px 16px 10px;
+  border-radius: 26px;
+
+  background: rgba(6, 10, 26, .44);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 18px 50px rgba(0,0,0,.35);
+  text-align: center;
+}
+
+.annahelp-endcap .cta-phone__item{
+  margin: 0 auto 10px !important;
+}
+
+.annahelp-endcap .annahelp-stamp--inside{
+  width: min(360px, 86%) !important;
+  margin: 0 auto !important;
+  transform: rotate(-10deg);
+  opacity: .92;
+}
