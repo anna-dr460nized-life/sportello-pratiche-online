@@ -2747,3 +2747,241 @@ body{
   box-shadow: 0 0 18px rgba(0,255,200,.20);
   text-decoration: none; /* via underline, lo fa già “bottone” */
 }
+
+
+/* =========================================================
+   ISEE — ACCORDION DOCUMENTI (titolo clic -> testo)
+   ========================================================= */
+.isee-docs{
+  width: min(860px, 100%);
+  margin: 0 auto;
+  padding: 10px 14px;
+}
+
+.isee-docs__head{
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.isee-docs__title{
+  margin: 0 0 10px;
+}
+
+.isee-docs__note{
+  margin: 0 auto;
+  max-width: 760px;
+  line-height: 1.55;
+  opacity: .95;
+}
+
+.isee-accordion{
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.isee-item{
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 18px;
+  background: rgba(6, 8, 24, .70);
+  overflow: hidden;
+}
+
+.isee-item__sum{
+  cursor: pointer;
+  padding: 14px 16px;
+  font-weight: 700;
+  list-style: none;
+  user-select: none;
+}
+
+.isee-item__sum::-webkit-details-marker{ display:none; }
+
+/* freccetta “custom” */
+.isee-item__sum{
+  position: relative;
+  padding-right: 44px;
+}
+.isee-item__sum::after{
+  content: "▾";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: .9;
+  transition: transform .18s ease;
+}
+
+.isee-item[open] .isee-item__sum::after{
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.isee-item__body{
+  padding: 0 16px 14px;
+}
+
+.isee-item__body ul{
+  margin: 10px 0 0;
+  padding-left: 18px;
+}
+
+.isee-item__body li{
+  margin: 8px 0;
+  line-height: 1.55;
+}
+
+/* Mobile: un filo più compatto */
+@media (max-width: 760px){
+  .isee-docs{ padding: 10px 12px; }
+  .isee-item__sum{ padding: 13px 14px; }
+  .isee-item__body{ padding: 0 14px 13px; }
+}
+
+
+/* =========================================================
+   ISEE — NEON UPGRADE (titolo + card + glow)
+   Incolla sotto al CSS precedente (override)
+   ========================================================= */
+
+/* TITOLO: neon grosso, super leggibile */
+.isee-docs__title{
+  margin: 0 0 12px;
+  font-size: clamp(1.6rem, 3.2vw, 2.35rem);
+  letter-spacing: .6px;
+  font-weight: 900;
+
+  /* neon */
+  color: #eaffff;
+  text-shadow:
+    0 0 10px rgba(0,255,255,.55),
+    0 0 22px rgba(0,255,255,.35),
+    0 0 40px rgba(140,90,255,.22);
+}
+
+/* Nota NB: “vetro” + bordo neon */
+.isee-docs__note{
+  margin: 0 auto;
+  max-width: 780px;
+  padding: 12px 14px;
+  border-radius: 18px;
+
+  background: rgba(6, 8, 24, .58);
+  border: 1px solid rgba(0,255,255,.20);
+
+  color: rgba(233, 249, 255, .95);
+  text-shadow: 0 0 10px rgba(0,255,255,.25);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 12px 30px rgba(0,0,0,.45),
+    0 0 26px rgba(0,255,255,.12);
+}
+
+/* Accordion: “card neon” */
+.isee-item{
+  border-radius: 22px;
+
+  background: rgba(6, 8, 24, .72);
+  border: 1px solid rgba(0,255,255,.22);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 14px 34px rgba(0,0,0,.55),
+    0 0 28px rgba(0,255,255,.10);
+}
+
+/* Titolo cliccabile: glow + separatore */
+.isee-item__sum{
+  padding: 16px 18px;
+  font-weight: 850;
+  letter-spacing: .2px;
+  color: #eaffff;
+
+  text-shadow:
+    0 0 10px rgba(0,255,255,.35),
+    0 0 18px rgba(140,90,255,.18);
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+/* Hover “tech” */
+.isee-item__sum:hover{
+  background: rgba(0,255,255,.06);
+}
+
+/* Freccia: più “HUD” */
+.isee-item__sum::after{
+  content: "⟡";
+  font-size: 1.1rem;
+  opacity: .95;
+  text-shadow:
+    0 0 10px rgba(0,255,255,.45),
+    0 0 22px rgba(140,90,255,.25);
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+.isee-item[open] .isee-item__sum::after{
+  transform: translateY(-50%) rotate(180deg) scale(1.08);
+  opacity: 1;
+}
+
+/* Corpo testo: leggibilità + glow leggero */
+.isee-item__body{
+  padding: 8px 18px 16px;
+  color: rgba(233,249,255,.95);
+  text-shadow: 0 0 10px rgba(0,255,255,.12);
+}
+
+/* Liste più “pulite” */
+.isee-item__body ul{
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+.isee-item__body li{
+  margin: 9px 0;
+}
+
+/* Mobile: titolo ancora bello senza spaccare layout */
+@media (max-width: 760px){
+  .isee-docs__title{
+    font-size: clamp(1.45rem, 5vw, 2rem);
+  }
+  .isee-docs__note{
+    padding: 11px 12px;
+    border-radius: 16px;
+  }
+  .isee-item__sum{ padding: 14px 14px; }
+  .isee-item__body{ padding: 8px 14px 14px; }
+}
+
+/* ISEE accordion dentro terminal-box: neon coerente */
+.terminal-box--docs .isee-item{
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
+  background: rgba(6, 8, 24, .35);
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.terminal-box--docs .isee-item__sum{
+  padding: 14px 16px;
+  cursor: pointer;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0,255,255,.55);
+}
+
+.terminal-box--docs .isee-item__body{
+  padding: 0 16px 14px;
+}
+section[aria-label="Titolo pagina"]{
+  margin-top: 10px;
+  text-align: center;
+}
+section[aria-label="Titolo pagina"] > h2{
+  font-size: clamp(1.9rem, 5.4vw, 2.9rem);
+  font-weight: 900;
+  text-shadow:
+    0 0 12px rgba(0,255,255,.60),
+    0 0 30px rgba(0,255,255,.25),
+    0 0 40px rgba(140,90,255,.18);
+}
