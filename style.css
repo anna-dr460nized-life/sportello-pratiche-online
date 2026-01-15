@@ -2985,3 +2985,11 @@ section[aria-label="Titolo pagina"] > h2{
     0 0 30px rgba(0,255,255,.25),
     0 0 40px rgba(140,90,255,.18);
 }
+
+
+.isee-note-strong{
+  font-weight: 700;
+  text-align: center;
+  margin: 18px auto 0;
+  max-width: 980px;
+}
