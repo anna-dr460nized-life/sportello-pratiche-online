@@ -3087,8 +3087,7 @@ section[aria-label="Titolo pagina"] > h2{
 }
 @media (max-width: 768px) {
     .clienti-float {
-        left: 0 !important;
-    }
+left: -50px !important;    }
 }
 
 .clienti-popup {
