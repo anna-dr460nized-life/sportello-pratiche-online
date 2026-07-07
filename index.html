@@ -793,5 +793,63 @@ document.addEventListener('DOMContentLoaded', () => {
     </svg>
   </a>
 
+ <!-- =========================================================
+       PUNTO ESCLAMATIVO SALTELLANTE PER CLIENTI
+       ========================================================= -->
+<a href="#" class="clienti-float" id="clientiFloat" aria-label="Vantaggio Clienti">
+    <img src="Clienti.png" alt="Vantaggio riservato ai Clienti">
+</a>
+
+<div id="clientiPopup" class="clienti-popup">
+    <div class="clienti-popup-box">
+
+        <button class="clienti-popup-close" id="clientiPopupClose">
+            &times;
+        </button>
+
+        <h2>Un vantaggio per chi è già Cliente ✨</h2>
+
+        <p>
+            Preferisco sempre premiare chi ha già scelto
+            Sportello Pratiche Online. Il progetto esiste per coloro che si sono affidati a me.
+        </p>
+
+       <p>
+    Se sei un <strong>“vecchio” Cliente e ne presenti uno nuovo, 
+    <strong>la prossima pratica di cui avrai bisogno, qualunque essa sia, sarà gratuita.</strong>
+</p>
+
+        <p class="clienti-popup-small">
+            Nulla da aggiungere. Vale <strong>sempre</strong>. 
+        </p>
+
+<div class="diventa-vecchio-cliente">
+    Diventa “vecchio” Cliente!
+</div>
+
+    </div>
+</div>
+<script>
+const clientiFloat = document.getElementById("clientiFloat");
+const clientiPopup = document.getElementById("clientiPopup");
+const clientiPopupClose = document.getElementById("clientiPopupClose");
+
+clientiFloat.addEventListener("click", function(event) {
+    event.preventDefault();
+    clientiPopup.classList.add("aperto");
+});
+
+clientiPopupClose.addEventListener("click", function() {
+    clientiPopup.classList.remove("aperto");
+});
+
+clientiPopup.addEventListener("click", function(event) {
+    if (event.target === clientiPopup) {
+        clientiPopup.classList.remove("aperto");
+    }
+});
+</script>
+
+
 </body>
 </html>
