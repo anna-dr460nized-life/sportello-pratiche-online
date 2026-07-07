@@ -793,7 +793,7 @@ body{
   font-size: 2.2rem; /* Bella grande e visibile */
   font-weight: 600;
   text-decoration: none;
-  color: #ffffff; /* Bianco puro retroilluminato */
+  color: #ffe203; /* Bianco puro retroilluminato */
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Effetto neon soft */
   margin: 20px 0;
   animation: bounce 2s infinite;

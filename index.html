@@ -156,16 +156,16 @@
       <!-- Pill grid “attiva” -->
       <div class="pill-grid">
         <button class="pill pill-servizi">Invio PEC</button>
-        <button class="pill pill-fiscale">ISEE</button>
+        <button class="pill pill-fiscale" id="pill-isee">ISEE</button>
         <button class="pill pill-previdenza">Invalidità civile</button>
 
         <button class="pill pill-fiscale f24">F24</button>
         <button class="pill pill-servizi pill-wide">Servizi digitali</button>
 
         <button class="pill pill-previdenza pill-wide">Modello RED INPS</button>
-        <button class="pill pill-fiscale">730</button>
+        <button class="pill pill-fiscale" id="pill-730">730</button>
 
-        <button class="pill pill-servizi pill-wide">Lavoratori domestici</button>
+        <button class="pill pill-servizi pill-wide" id="pill-domestici">Lavoratori domestici</button>
         <button class="pill pill-previdenza">Immigrazione</button>
 
         <button class="pill pill-fiscale pill-wide pill-riscossione">Pratiche Riscossione AdE</button>
@@ -175,7 +175,7 @@
 
         <button class="pill pill-previdenza pill-wide">Prestazioni INPS</button>
 
-        <button class="pill pill-fiscale pill-wide">Modello Redditi Persone Fisiche</button>
+        <button class="pill pill-fiscale pill-wide" id="pill-redditi-pf">Modello Redditi Persone Fisiche</button>
       </div>
 
       <!-- Bottone ISEE 2026 -->
@@ -198,7 +198,7 @@
 
     <!-- =========================================================
          SEZIONE: COME FUNZIONA (inizialmente nascosta)
-         Qui prima avevi:
+         Qui prima avevo:
          - <section class="cta-phone"> NON chiusa
          - 1 </section> in più
          Ora è tutto annidato correttamente.
@@ -484,6 +484,258 @@
     });
   </script>
 
+<!-- =========================================================
+     POPUP PILLOLA ISEE
+     ========================================================= -->
+
+<div class="isee-popup" id="popup-isee" aria-hidden="true">
+  <div class="isee-box" role="dialog" aria-label="ISEE">
+
+    <h3>ISEE</h3>
+
+<!-- LINK POPUP ISEE -->
+<p>
+  Consulta la documentazione necessaria:<br>
+  <a href="Documenti-Necessari-ISEE.html" class="popup-cta" aria-label="Apri la checklist documenti ISEE">
+    <strong>Checklist documenti ISEE →</strong>
+  </a>
+</p>
+
+    <button class="close-popup" type="button">Chiudi</button>
+
+  </div>
+</div>
+
+
+<!-- =========================================================
+     POPUP PILLOLA 730
+     ========================================================= -->
+
+<div class="isee-popup" id="popup-730" aria-hidden="true">
+  <div class="isee-box" role="dialog" aria-label="730">
+
+    <h3>730 2026 Dichiarazione dei redditi 2025</h3>
+
+   <!-- LINK POPUP 730 -->
+<p>
+  Consulta la documentazione necessaria:<br>
+  <a href="Documenti-Necessari-Dichiarazione-dei-redditi.html" class="popup-cta" aria-label="Apri la checklist documenti Dichiarazione dei redditi">
+    <strong>Checklist documenti 730 →</strong>
+  </a>
+</p>
+    <button class="close-popup" type="button">Chiudi</button>
+
+  </div>
+</div>
+
+
+<!-- =========================================================
+     POPUP PILLOLA MODELLO REDDITI PF
+     ========================================================= -->
+
+<div class="isee-popup" id="popup-redditi-pf" aria-hidden="true">
+  <div class="isee-box" role="dialog" aria-label="Modello Redditi Persone Fisiche">
+
+    <h3>Modello Redditi Persone Fisiche</h3>
+
+   <!-- LINK POPUP 730 -->
+<p>
+  Consulta la documentazione necessaria:<br>
+  <a href="Documenti-Necessari-Dichiarazione-dei-redditi.html" class="popup-cta" aria-label="Apri la checklist documenti Dichiarazione dei redditi">
+    <strong>Checklist documenti 730 →</strong>
+  </a>
+</p>
+
+    <button class="close-popup" type="button">Chiudi</button>
+
+  </div>
+</div>
+
+
+<!-- =========================================================
+     POPUP PILLOLA LAVORATORI DOMESTICI
+     ========================================================= -->
+
+<div class="isee-popup" id="popup-domestici" aria-hidden="true">
+  <div class="isee-box" role="dialog" aria-label="Lavoratori domestici">
+
+    <h3>Lavoratori domestici</h3>
+
+   <!-- LINK POPUP LAVORATORI DOMESTICI -->
+<p>
+  Consulta la documentazione necessaria:<br>
+  <a href="Documenti-Necessari-Lavoratori-Domestici.html" class="popup-cta" aria-label="Apri la checklist documenti Lavoratori domestici">
+    <strong>Checklist documenti Lavoratori domestici →</strong>
+  </a>
+</p>
+
+    <button class="close-popup" type="button">Chiudi</button>
+
+  </div>
+</div>
+
+<!-- =========================================================
+     SCRIPT POPUP PILLOLE
+     VERSIONE SAFE:
+     se manca una pillola, un popup o un pulsante Chiudi,
+     lo script non crasha e non rompe il resto della pagina
+     ========================================================= -->
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+
+  /* =========================================================
+     PILLOLA / POPUP ISEE
+     ========================================================= */
+
+  const pillIsee = document.getElementById('pill-isee');
+  const popupIsee = document.getElementById('popup-isee');
+
+
+  /* =========================================================
+     PILLOLA / POPUP 730
+     ========================================================= */
+
+  const pill730 = document.getElementById('pill-730');
+  const popup730 = document.getElementById('popup-730');
+
+
+  /* =========================================================
+     PILLOLA / POPUP MODELLO REDDITI PF
+     ========================================================= */
+
+  const pillRedditiPf = document.getElementById('pill-redditi-pf');
+  const popupRedditiPf = document.getElementById('popup-redditi-pf');
+
+
+  /* =========================================================
+     PILLOLA / POPUP LAVORATORI DOMESTICI
+     ========================================================= */
+
+  const pillDomestici = document.getElementById('pill-domestici');
+  const popupDomestici = document.getElementById('popup-domestici');
+
+
+
+  /* =========================================================
+     APERTURA SAFE:
+     COLLEGA UNA PILLOLA AL SUO POPUP
+
+     Se la pillola o il popup non esistono,
+     non succede nulla e lo script continua a funzionare.
+     ========================================================= */
+
+  function collegaPopupSafe(pillola, popup) {
+
+    if (!pillola || !popup) return;
+
+    pillola.addEventListener('click', () => {
+
+      popup.style.display = 'flex';
+
+      popup.setAttribute('aria-hidden', 'false');
+
+    });
+
+  }
+
+
+
+  /* =========================================================
+     COLLEGAMENTO PILLOLA ISEE
+     ========================================================= */
+
+  collegaPopupSafe(pillIsee, popupIsee);
+
+
+
+  /* =========================================================
+     COLLEGAMENTO PILLOLA 730
+     ========================================================= */
+
+  collegaPopupSafe(pill730, popup730);
+
+
+
+  /* =========================================================
+     COLLEGAMENTO PILLOLA MODELLO REDDITI PF
+     ========================================================= */
+
+  collegaPopupSafe(pillRedditiPf, popupRedditiPf);
+
+
+
+  /* =========================================================
+     COLLEGAMENTO PILLOLA LAVORATORI DOMESTICI
+     ========================================================= */
+
+  collegaPopupSafe(pillDomestici, popupDomestici);
+
+
+
+  /* =========================================================
+     CHIUSURA SAFE DEI 4 POPUP
+
+     Cerca SOLO i pulsanti Chiudi presenti nei 4 nuovi popup.
+
+     NON TOCCA il popup originale:
+     "Documenti da inviare ieri / Anna HELP"
+     ========================================================= */
+
+  const popupPillole = [
+    popupIsee,
+    popup730,
+    popupRedditiPf,
+    popupDomestici
+  ];
+
+
+  popupPillole.forEach((popup) => {
+
+
+    /* =======================================================
+       Se il popup non esiste, passa al successivo
+       senza generare errori
+       ======================================================= */
+
+    if (!popup) return;
+
+
+    /* =======================================================
+       Cerca il pulsante Chiudi SOLO dentro questo popup
+       ======================================================= */
+
+    const close = popup.querySelector('.close-popup');
+
+
+    /* =======================================================
+       Se il pulsante Chiudi non esiste,
+       passa al popup successivo senza crashare
+       ======================================================= */
+
+    if (!close) return;
+
+
+    /* =======================================================
+       CHIUSURA DEL SINGOLO POPUP
+       ======================================================= */
+
+    close.addEventListener('click', () => {
+
+      popup.style.display = 'none';
+
+      popup.setAttribute('aria-hidden', 'true');
+
+    });
+
+  });
+
+
+});
+
+</script>
 
   <!-- =========================================================
        SCRIPT COOKIE BANNER
