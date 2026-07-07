@@ -3071,7 +3071,7 @@ section[aria-label="Titolo pagina"] > h2{
 }
 
 .clienti-float img {
-    width: 140px !important;
+    width: 170px !important;
     height: auto !important;
     display: block !important;
 }
@@ -3083,6 +3083,11 @@ section[aria-label="Titolo pagina"] > h2{
 
     50% {
         transform: translateY(-15px);
+    }
+}
+@media (max-width: 768px) {
+    .clienti-float {
+        left: 0 !important;
     }
 }
 
